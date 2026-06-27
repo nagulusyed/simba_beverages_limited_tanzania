@@ -1,0 +1,313 @@
+/* ============================================
+   SIMBA BEVERAGES — WHOLESALE PAGE STYLES
+   Pricing Calculator + Contact/Partner sections
+   ============================================ */
+
+/* ── PAGE HERO ── */
+.page-hero {
+  padding: 10rem 0 5rem;
+  background: linear-gradient(160deg, #0D0A06 0%, #1A0F02 60%, #0D0A06 100%);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.page-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 50% 60%, rgba(245,166,35,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.page-hero .section-title { font-size: clamp(2.8rem, 6vw, 5.5rem); }
+
+/* ── PRICING CALCULATOR ── */
+.pricing-section {
+  background: #0D0A06;
+  padding: 7rem 0;
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 5rem;
+  align-items: start;
+}
+.pricing-left .section-title { font-size: clamp(2.4rem, 4.5vw, 4rem); }
+
+/* Discount tiers */
+.discount-tiers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+.tier-card {
+  border: 1px solid var(--border-gold);
+  padding: 1.25rem 1rem;
+  text-align: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+.tier-card:hover, .tier-card.active {
+  background: rgba(245,166,35,0.08);
+  border-color: var(--gold);
+}
+.tier-pct {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  display: block;
+}
+.tier-range {
+  font-size: 11px;
+  color: var(--cream-dim);
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+
+/* Calculator card */
+.calc-card {
+  border: 1px solid var(--gold);
+  background: rgba(245,166,35,0.04);
+  padding: 2.5rem;
+}
+.calc-card::before { display: none; } /* override .card accent bar */
+
+.calc-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+.calc-field { flex: 1; }
+.calc-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+.calc-select {
+  width: 100%;
+  background: rgba(13,10,6,0.8);
+  border: 1px solid rgba(245,166,35,0.3);
+  color: var(--cream);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  padding: 10px 14px;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23F5A623' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  cursor: pointer;
+}
+.calc-select:focus { outline: none; border-color: var(--gold); }
+
+.calc-price-display {
+  text-align: right;
+}
+.calc-price-display .price-val {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--gold);
+  display: block;
+  line-height: 1;
+}
+
+/* Slider */
+.slider-row { margin-bottom: 1.75rem; }
+.slider-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+.slider-cases {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+input[type="range"] {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: rgba(245,166,35,0.2);
+  border-radius: 2px;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--gold);
+  cursor: pointer;
+  box-shadow: 0 0 0 4px rgba(245,166,35,0.2);
+  transition: box-shadow 0.2s;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 6px rgba(245,166,35,0.3);
+}
+
+/* Results panel */
+.calc-results {
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(245,166,35,0.12);
+  padding: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.5rem;
+}
+.result-item { }
+.result-label {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  display: block;
+  margin-bottom: 4px;
+}
+.result-val {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--cream);
+}
+.result-val.is-gold { color: var(--gold); }
+.result-total-row {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(245,166,35,0.15);
+}
+.total-label {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  display: block;
+  margin-bottom: 4px;
+}
+.total-amount {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+
+/* ── CONTACT / PARTNER SECTION ── */
+.contact-section {
+  background: linear-gradient(155deg, #0D0A06 0%, #1A0F02 55%, #0D0A06 100%);
+  padding: 7rem 0;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+/* Contact info */
+.contact-info-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+.contact-icon {
+  width: 52px; height: 52px;
+  background: rgba(245,166,35,0.1);
+  border: 1px solid var(--border-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+.contact-info-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+.contact-info-val {
+  font-size: 14px;
+  color: var(--cream-muted);
+  line-height: 1.6;
+}
+.contact-info-val a {
+  color: var(--cream-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.contact-info-val a:hover { color: var(--gold); }
+
+/* Contact form */
+.form-group { margin-bottom: 1.25rem; }
+.form-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  background: rgba(13,10,6,0.7);
+  border: 1px solid rgba(245,166,35,0.25);
+  color: var(--cream);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  padding: 11px 14px;
+  transition: border-color 0.2s;
+  outline: none;
+  display: block;
+}
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus { border-color: var(--gold); }
+.form-input::placeholder,
+.form-textarea::placeholder { color: var(--cream-dim); }
+.form-textarea { resize: vertical; min-height: 120px; }
+.form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23F5A623' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  cursor: pointer;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-success {
+  display: none;
+  background: rgba(245,166,35,0.1);
+  border: 1px solid var(--gold);
+  padding: 1rem 1.25rem;
+  color: var(--gold);
+  font-size: 14px;
+  margin-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .pricing-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .pricing-left .section-title { font-size: 2.6rem; }
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .discount-tiers { grid-template-columns: repeat(3, 1fr); }
+  .form-row { grid-template-columns: 1fr; }
+}

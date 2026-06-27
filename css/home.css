@@ -1,0 +1,309 @@
+/* ============================================
+   SIMBA BEVERAGES — HOME PAGE STYLES
+   ============================================ */
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 70% at 78% 50%, rgba(245,166,35,0.09) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 18% 80%, rgba(74,124,63,0.06) 0%, transparent 50%),
+    linear-gradient(160deg, #0D0A06 0%, #1A0F02 55%, #0D0A06 100%);
+}
+.hero-kilimanjaro {
+  position: absolute;
+  top: 0; right: 0;
+  width: 52%;
+  height: 100%;
+  clip-path: polygon(28% 100%, 62% 0%, 100% 100%);
+  background: linear-gradient(135deg, rgba(245,166,35,0.06) 0%, transparent 65%);
+}
+.hero-silhouette {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 200px;
+  opacity: 0.14;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+  padding: 8rem 3rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px; height: 2px;
+  background: var(--gold);
+}
+.hero-headline {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(3rem, 5.5vw, 5.5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.hero-headline .line-gold { color: var(--gold); display: block; }
+.hero-headline .line-white { color: var(--white); display: block; }
+.hero-headline .tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.22em;
+  font-weight: 400;
+  color: rgba(253,246,233,0.4);
+  letter-spacing: 0.24em;
+  display: block;
+  margin-top: 0.8rem;
+  text-transform: uppercase;
+}
+.hero-desc {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--cream-muted);
+  max-width: 420px;
+  margin-bottom: 2.5rem;
+}
+.hero-ctas { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+.hero-stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-gold);
+  flex-wrap: wrap;
+}
+.stat-num {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  margin-top: 4px;
+}
+
+/* Bottle */
+.hero-right { display: flex; align-items: center; justify-content: center; }
+.bottle-stage { position: relative; width: 320px; height: 520px; }
+.bottle-glow {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(245,166,35,0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse-glow 3.5s ease-in-out infinite;
+}
+@keyframes pulse-glow {
+  0%,100% { opacity:0.65; transform:translate(-50%,-50%) scale(1); }
+  50% { opacity:1; transform:translate(-50%,-50%) scale(1.1); }
+}
+.bottle-float {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%,100% { transform: translate(-50%,-50%) translateY(0); }
+  50% { transform: translate(-50%,-50%) translateY(-14px); }
+}
+.halisi-badge {
+  position: absolute;
+  top: 20px; right: 0;
+  width: 80px; height: 80px;
+  animation: spin-slow 22s linear infinite;
+}
+@keyframes spin-slow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+
+/* ── MARQUEE STRIP ── */
+.marquee-strip {
+  background: var(--gold);
+  padding: 0.75rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.marquee-track {
+  display: inline-flex;
+  animation: marquee 18s linear infinite;
+}
+.marquee-track span {
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--black);
+  padding: 0 2rem;
+}
+.marquee-track span.dot { color: rgba(13,10,6,0.4); padding: 0 0.5rem; }
+@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* ── PRODUCT SECTION ── */
+.product-section { background: var(--brown-deep); padding: 7rem 0; }
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.ingredients-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 0;
+}
+.ingredient-card .card-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+.ingredient-card .card-name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+.ingredient-card .card-desc { font-size: 12px; line-height: 1.7; color: var(--cream-dim); }
+
+/* ── HERITAGE ── */
+.heritage-section {
+  background: linear-gradient(155deg, #0D0A06 0%, #1F1002 50%, #0D0A06 100%);
+  padding: 7rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.heritage-bg-text {
+  position: absolute;
+  font-family: 'Oswald', sans-serif;
+  font-size: 20rem;
+  font-weight: 700;
+  color: rgba(245,166,35,0.025);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+.heritage-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 4rem;
+}
+.heritage-card {
+  padding: 3rem 2rem;
+  border-right: 1px solid var(--border-gold);
+  border-top: 3px solid transparent;
+  transition: border-top-color 0.3s;
+}
+.heritage-card:hover { border-top-color: var(--gold); }
+.heritage-card:last-child { border-right: none; }
+.heritage-num {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: rgba(245,166,35,0.12);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.heritage-name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+.heritage-text { font-size: 13px; line-height: 1.85; color: var(--cream-dim); }
+
+/* ── HALISI BANNER ── */
+.halisi-banner {
+  background: var(--gold);
+  padding: 5.5rem 0;
+  text-align: center;
+}
+.halisi-banner .section-title { color: var(--black); }
+.halisi-banner .section-desc { color: rgba(13,10,6,0.65); margin: 0 auto 2.5rem; }
+.halisi-banner .section-label { color: var(--brown-deep); justify-content: center; }
+.halisi-banner .section-label::before { background: var(--brown-deep); }
+
+/* ── INSTAGRAM ── */
+.insta-section { background: var(--brown-deep); padding: 5rem 0; text-align: center; }
+.insta-handle {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+}
+.insta-sub {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  margin-bottom: 2.5rem;
+}
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 4px;
+  max-width: 840px;
+  margin: 0 auto 2rem;
+}
+.insta-thumb {
+  aspect-ratio: 1;
+  background: rgba(245,166,35,0.07);
+  border: 1px solid var(--border-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: rgba(245,166,35,0.3);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.insta-thumb:hover { background: rgba(245,166,35,0.14); border-color: rgba(245,166,35,0.35); }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-content { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; gap: 2rem; }
+  .hero-right { display: none; }
+  .product-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .ingredients-grid { grid-template-columns: 1fr; }
+  .heritage-cards { grid-template-columns: 1fr; }
+  .heritage-card { border-right: none; border-bottom: 1px solid var(--border-gold); }
+  .insta-grid { grid-template-columns: repeat(3, 1fr); }
+}
