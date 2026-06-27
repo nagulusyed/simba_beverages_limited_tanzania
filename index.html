@@ -199,7 +199,9 @@ footer{background:#080602;padding:5rem 0 2rem;border-top:1px solid var(--border-
 .wa-float svg{width:30px;height:30px;fill:white}
 @media(max-width:1024px){nav{padding:1rem 2rem}.container{padding:0 2rem}.footer-grid{grid-template-columns:1fr 1fr;gap:2rem}.range-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:768px){
-  .nav-links,.nav-cta{display:none}.nav-hamburger{display:flex}
+  .nav-links{display:none;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:rgba(8,6,2,.95);backdrop-filter:blur(10px);padding:2rem;border-bottom:1px solid rgba(245,166,35,.15)}
+  .nav-links.active{display:flex}
+  .nav-cta{display:none}.nav-hamburger{display:flex}
   .container{padding:0 1.25rem}
   .hero-content{grid-template-columns:1fr;padding:7rem 1.5rem 3rem;gap:2rem}.hero-right{display:none}
   .product-grid,.contact-grid,.pricing-grid{grid-template-columns:1fr;gap:2.5rem}
@@ -724,6 +726,15 @@ footer{background:#080602;padding:5rem 0 2rem;border-top:1px solid var(--border-
 </a>
 
 <script>
+// MOBILE MENU
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.querySelector('.nav-links');
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => navLinks.classList.remove('active'));
+});
 // ── NAV
 const nav=document.getElementById('mainNav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60));
