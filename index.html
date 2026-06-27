@@ -862,14 +862,14 @@ document.getElementById('contactForm').addEventListener('submit',async function(
   const btn=document.getElementById('btnEmail');
   btn.disabled=true;btn.textContent='Sending...';
 
-  // If Formspree ID not set, fall back to mailto
+  // Fall back to opening prefilled Gmail directly
   if(FORMSPREE_ID==='YOUR_FORM_ID'){
     const subject=encodeURIComponent('Wholesale Enquiry — '+f.company);
     const body=encodeURIComponent(
       'Name: '+f.firstName+' '+f.lastName+'\nEmail: '+f.email+'\nPhone: '+f.phone+
       '\nCompany: '+f.company+'\nType: '+f.type+'\n\n'+f.message
     );
-    window.location.href='mailto:sales@simba-beverages.co.tz?subject='+subject+'&body='+body;
+    window.open('https://mail.google.com/mail/?view=cm&fs=1&to=sales@simba-beverages.co.tz&su='+subject+'&body='+body, '_blank');
     btn.disabled=false;btn.textContent='Send via Email';
     showSuccess();
     return;
