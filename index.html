@@ -16,7 +16,7 @@
   --white:#FFFFFF;--border-gold:rgba(245,166,35,0.18);
 }
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--black);color:var(--cream);overflow-x:hidden;line-height:1.6}
+html,body{font-family:'Inter',sans-serif;background:var(--black);color:var(--cream);overflow-x:hidden;line-height:1.6}
 nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:rgba(13,10,6,0.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border-gold);transition:background .3s}
 nav.scrolled{background:rgba(13,10,6,0.98)}
 .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
@@ -42,7 +42,7 @@ nav.scrolled{background:rgba(13,10,6,0.98)}
 .container{max-width:1200px;margin:0 auto;padding:0 3rem}
 .section-label{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1rem}
 .section-label::before{content:'';display:block;width:24px;height:2px;background:var(--gold);flex-shrink:0}
-.section-title{font-family:'Oswald',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;text-transform:uppercase;letter-spacing:.03em;line-height:1.05;margin-bottom:1rem}
+.section-title{font-family:'Oswald',sans-serif;font-size:clamp(1.5rem,7vw,3.2rem);font-weight:700;text-transform:uppercase;letter-spacing:.03em;line-height:1.05;margin-bottom:1rem}
 .section-title .accent{color:var(--gold)}
 .section-title .italic{font-family:'Playfair Display',serif;font-style:italic;text-transform:none}
 .section-desc{font-size:15px;line-height:1.85;color:var(--cream-muted);max-width:520px;margin-bottom:2.5rem}
@@ -56,7 +56,7 @@ nav.scrolled{background:rgba(13,10,6,0.98)}
 .hero-content{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:4rem;padding:8rem 3rem 4rem;max-width:1200px;margin:0 auto}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1.5rem}
 .hero-eyebrow::before{content:'';display:block;width:32px;height:2px;background:var(--gold)}
-.hero-headline{font-family:'Oswald',sans-serif;font-size:clamp(3rem,5.5vw,5.5rem);font-weight:700;line-height:.95;letter-spacing:.02em;text-transform:uppercase;margin-bottom:1.5rem}
+.hero-headline{font-family:'Oswald',sans-serif;font-size:clamp(2rem,9vw,5.5rem);font-weight:700;line-height:.95;letter-spacing:.02em;text-transform:uppercase;margin-bottom:1.5rem}
 .hero-headline .line-gold{color:var(--gold);display:block}
 .hero-headline .line-white{color:var(--white);display:block}
 .hero-headline .tagline{font-family:'Inter',sans-serif;font-size:.22em;font-weight:400;color:rgba(253,246,233,.4);letter-spacing:.24em;display:block;margin-top:.8rem;text-transform:uppercase}
@@ -90,7 +90,7 @@ nav.scrolled{background:rgba(13,10,6,0.98)}
 .range-section{background:#0E1220;padding:7rem 0}
 .range-header{text-align:center;margin-bottom:4rem}
 .range-header .section-label{justify-content:center}
-.range-title{font-family:'Oswald',sans-serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:700;margin-bottom:1rem}
+.range-title{font-family:'Oswald',sans-serif;font-size:clamp(1.8rem,7vw,3.5rem);font-weight:700;margin-bottom:1rem}
 .range-title .w{color:#fff}.range-title .g{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;text-transform:none;color:var(--gold)}
 .range-sub{font-size:15px;color:var(--cream-muted);max-width:540px;margin:0 auto}
 .range-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
@@ -123,7 +123,7 @@ nav.scrolled{background:rgba(13,10,6,0.98)}
 .halisi-banner .section-title{color:var(--black)}.halisi-banner .section-desc{color:rgba(13,10,6,.65);margin:0 auto 2.5rem}
 .halisi-banner .section-label{color:#1A0F02;justify-content:center}.halisi-banner .section-label::before{background:#1A0F02}
 .insta-section{background:linear-gradient(180deg, var(--brown-deep) 0%, #080604 100%);padding:8rem 0;text-align:center;position:relative}
-.insta-handle{font-family:'Oswald',sans-serif;font-size:clamp(3rem, 6vw, 4.5rem);font-weight:700;letter-spacing:.02em;margin-bottom:1rem;background:linear-gradient(90deg, #F5A623, #FFE5A3, #F5A623);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:200% auto;animation:shine 5s linear infinite;text-shadow:0 10px 30px rgba(245,166,35,.15)}
+.insta-handle{font-family:'Oswald',sans-serif;font-size:clamp(1.8rem, 8vw, 4.5rem);font-weight:700;letter-spacing:.02em;margin-bottom:1rem;background:linear-gradient(90deg, #F5A623, #FFE5A3, #F5A623);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:200% auto;animation:shine 5s linear infinite;text-shadow:0 10px 30px rgba(245,166,35,.15)}
 @keyframes shine{to{background-position:200% center}}
 .insta-sub{display:flex;align-items:center;justify-content:center;gap:1.5rem;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--cream-dim);margin-bottom:4rem}
 .insta-sub::before,.insta-sub::after{content:'';display:block;width:60px;height:1px;background:rgba(245,166,35,.3)}
@@ -536,7 +536,7 @@ footer{background:#080602;padding:5rem 0 2rem;border-top:1px solid var(--border-
     <div class="pricing-grid">
       <div class="reveal">
         <div class="badge-pill">B2B Wholesale</div>
-        <h2 class="section-title" style="font-size:clamp(2.4rem,4.5vw,4rem)"><span>Interactive</span><br><span class="italic accent">Pricing</span><br><span>Calculator</span></h2>
+        <h2 class="section-title" style="font-size:clamp(1.8rem,8vw,4rem)"><span>Interactive</span><br><span class="italic accent">Pricing</span><br><span>Calculator</span></h2>
         <p class="section-desc">Simba Beverages Limited supports wholesalers, distributors, and bulk retail accounts across Tanzania. Estimate your order costs and volume discounts in real-time.</p>
         <div class="tier-badges">
           <div class="tier-badge" data-pct="5"><span class="tier-pct">5% OFF</span><div class="tier-range">100 – 499 Cases</div></div>
@@ -569,7 +569,7 @@ footer{background:#080602;padding:5rem 0 2rem;border-top:1px solid var(--border-
             </div>
             <div style="text-align:right;flex-shrink:0">
               <span class="calc-label" style="text-align:right;display:block">Base Price / Case</span>
-              <span id="basePrice" style="font-family:'Oswald',sans-serif;font-size:1.8rem;font-weight:700;color:var(--gold);line-height:1;display:block">$14.50</span>
+              <span id="basePrice" style="font-family:'Oswald',sans-serif;font-size:1.8rem;font-weight:700;color:var(--gold);line-height:1;display:block">Tsh 14.50</span>
             </div>
           </div>
           <div style="margin-bottom:1.75rem">
@@ -581,13 +581,13 @@ footer{background:#080602;padding:5rem 0 2rem;border-top:1px solid var(--border-
           </div>
           <div class="calc-results-box">
             <div class="result-grid">
-              <div><span class="result-lbl">Est. Unit Price / Case</span><span class="result-val" id="unitPrice">$14.50</span></div>
+              <div><span class="result-lbl">Est. Unit Price / Case</span><span class="result-val" id="unitPrice">Tsh 14.50</span></div>
               <div><span class="result-lbl">Volume Discount</span><span class="result-val gold" id="discountPct">0%</span></div>
-              <div><span class="result-lbl">Total Savings</span><span class="result-val" id="totalSavings">$0.00</span></div>
+              <div><span class="result-lbl">Total Savings</span><span class="result-val" id="totalSavings">Tsh 0.00</span></div>
             </div>
             <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(245,166,35,.15)">
               <span class="result-lbl">Estimated Grand Total</span>
-              <span id="grandTotal" style="font-family:'Oswald',sans-serif;font-size:2.6rem;font-weight:700;color:var(--gold);line-height:1;display:block">$145.00</span>
+              <span id="grandTotal" style="font-family:'Oswald',sans-serif;font-size:2.6rem;font-weight:700;color:var(--gold);line-height:1;display:block">Tsh 145.00</span>
             </div>
           </div>
           <!-- CREATE ENQUIRY — scrolls to form + pre-fills message -->
@@ -607,7 +607,7 @@ footer{background:#080602;padding:5rem 0 2rem;border-top:1px solid var(--border-
     <div class="contact-grid">
       <div class="reveal">
         <div class="badge-pill">Partner With Us</div>
-        <h2 class="section-title" style="font-size:clamp(2.6rem,5vw,4.5rem);line-height:1.05">Let's <span class="italic accent">Work</span><br>Together</h2>
+        <h2 class="section-title" style="font-size:clamp(2rem,9vw,4.5rem);line-height:1.05">Let's <span class="italic accent">Work</span><br>Together</h2>
         <p class="section-desc">Whether you're a local retailer, national wholesaler, corporate client, or looking to join our logistics pipeline — we'd love to hear from you.</p>
         <div class="contact-block"><div class="contact-icon-box">📍</div><div><div class="contact-block-title">Corporate HQ</div><div class="contact-block-val">Plot 1204, Industrial Area, Dar es Salaam, Tanzania</div></div></div>
         <div class="contact-block"><div class="contact-icon-box">✉️</div><div><div class="contact-block-title">Distribution Enquiries</div><div class="contact-block-val"><a href="mailto:sales@simba-beverages.co.tz">sales@simba-beverages.co.tz</a></div></div></div>
@@ -769,11 +769,11 @@ function updateCalc(){
   const pname=sel.options[sel.selectedIndex].text;
 
   document.getElementById('casesLabel').textContent=qty+' cases';
-  document.getElementById('basePrice').textContent='$'+prod.basePrice.toFixed(2);
-  document.getElementById('unitPrice').textContent='$'+discounted.toFixed(2);
+  document.getElementById('basePrice').textContent='Tsh '+prod.basePrice.toFixed(2);
+  document.getElementById('unitPrice').textContent='Tsh '+discounted.toFixed(2);
   document.getElementById('discountPct').textContent=disc+'%';
-  document.getElementById('totalSavings').textContent='$'+savings.toFixed(2);
-  document.getElementById('grandTotal').textContent='$'+total.toFixed(2);
+  document.getElementById('totalSavings').textContent='Tsh '+savings.toFixed(2);
+  document.getElementById('grandTotal').textContent='Tsh '+total.toFixed(2);
   document.querySelectorAll('.tier-badge').forEach(c=>c.classList.toggle('active',parseInt(c.dataset.pct)===disc));
 
   // Store for form use
@@ -787,7 +787,7 @@ updateCalc();
 function createEnquiry(){
   if(!quoteData)return;
   const {pname,qty,discounted,disc,total}=quoteData;
-  const msg=`I'd like to enquire about: ${pname} × ${qty} cases @ $${discounted.toFixed(2)}/case${disc>0?' ('+disc+'% discount)':''}. Estimated total: $${total.toFixed(2)}`;
+  const msg=`I'd like to enquire about: ${pname} × ${qty} cases @ Tsh ${discounted.toFixed(2)}/case${disc>0?' ('+disc+'% discount)':''}. Estimated total: Tsh ${total.toFixed(2)}`;
 
   // Fill message field
   document.getElementById('fMessage').value=msg;
@@ -795,7 +795,7 @@ function createEnquiry(){
   // Show quote banner
   const banner=document.getElementById('quoteBanner');
   document.getElementById('quoteBannerText').textContent=
-    pname+' × '+qty+' cases — Est. total $'+total.toFixed(2)+(disc>0?' ('+disc+'% off)':'');
+    pname+' × '+qty+' cases — Est. total Tsh '+total.toFixed(2)+(disc>0?' ('+disc+'% off)':'');
   banner.style.display='block';
 
   // Highlight the enquiry button briefly
