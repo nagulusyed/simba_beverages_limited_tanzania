@@ -168,6 +168,9 @@ nav.scrolled{background:rgba(13,10,6,0.98)}
 .hero-stats{display:flex;gap:2.5rem;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border-gold);flex-wrap:wrap}
 .stat-num{font-family:'Oswald',sans-serif;font-size:2rem;font-weight:700;color:var(--gold);line-height:1}
 .stat-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-dim);margin-top:4px}
+.contact-info{margin-top:2.5rem}
+.contact-info p{color:var(--cream-dim);margin-bottom:.5rem;font-size:14px;display:flex;align-items:center;gap:10px}
+.stockists-section{padding:7rem 0}
 .hero-right{display:flex;align-items:center;justify-content:center}
 .bottle-stage{position:relative;width:340px;height:560px}
 .bottle-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:320px;height:320px;background:radial-gradient(circle,rgba(245,166,35,.22) 0%,transparent 70%);border-radius:50%;animation:pulse-glow 3.5s ease-in-out infinite}
@@ -558,7 +561,8 @@ input[type=number] { -moz-appearance: textfield; }
   <ul class="nav-links">
     <li><a href="#home" data-en="Home" data-sw="Mwanzo">Home</a></li><li><a href="#product" data-en="Flagship" data-sw="Kivutio">Flagship</a></li>
     <li><a href="#range" data-en="Products" data-sw="Bidhaa">Products</a></li><li><a href="#heritage" data-en="Heritage" data-sw="Urithi">Heritage</a></li>
-    <li><a href="#wholesale" data-en="Wholesale" data-sw="Jumla">Wholesale</a></li><li><a href="#contact" data-en="Contact" data-sw="Mawasiliano">Contact</a></li>
+    <li><a href="#stockists" data-en="Stockists" data-sw="Wasambazaji">Stockists</a></li><li><a href="#wholesale" data-en="Wholesale" data-sw="Jumla">Wholesale</a></li>
+    <li><a href="#contact" data-en="Contact" data-sw="Mawasiliano">Contact</a></li>
   </ul>
   <div class="lang-toggle" onclick="toggleLanguage()" style="cursor: pointer;">
     <button class="lang-btn active" data-lang="en" style="pointer-events: none;">EN</button>
@@ -868,7 +872,7 @@ input[type=number] { -moz-appearance: textfield; }
 </section>
 
 <!-- STOCKISTS -->
-<section id="stockists" class="section" style="background:#080602;">
+<section id="stockists" class="stockists-section" style="background:#080602;">
   <div class="container">
     <div class="section-label" data-en="Where to Buy" data-sw="Wapi kwa Kununua">Where to Buy</div>
     <h2 class="section-title" style="margin-bottom:2rem;" data-en="Our Distributors" data-sw="Wasambazaji Wetu">Our Distributors</h2>
@@ -1314,6 +1318,8 @@ function initAgeGate(){
     document.body.style.overflow = '';
   }
 }
+initAgeGate();
+
 function verifyAge(isAdult){
   if(isAdult){
     localStorage.setItem('sbl_age_verified','true');
