@@ -388,9 +388,9 @@ input[type=number] { -moz-appearance: textfield; }
     <li><a href="#range" data-en="Products" data-sw="Bidhaa">Products</a></li><li><a href="#heritage" data-en="Heritage" data-sw="Urithi">Heritage</a></li>
     <li><a href="#wholesale" data-en="Wholesale" data-sw="Jumla">Wholesale</a></li><li><a href="#contact" data-en="Contact" data-sw="Mawasiliano">Contact</a></li>
   </ul>
-  <div class="lang-toggle">
-    <button class="lang-btn active" onclick="setLang('en')">EN</button>
-    <button class="lang-btn" onclick="setLang('sw')">SW</button>
+  <div class="lang-toggle" onclick="toggleLanguage()" style="cursor: pointer;">
+    <button class="lang-btn active" data-lang="en" style="pointer-events: none;">EN</button>
+    <button class="lang-btn" data-lang="sw" style="pointer-events: none;">SW</button>
   </div>
   <a href="#wholesale" class="nav-cta" data-en="Order Now" data-sw="Agiza Sasa">Order Now</a>
   <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
@@ -1086,9 +1086,17 @@ function toggleFaq(el){
 }
 
 // ── LANGUAGE TOGGLE ──
+let currentLang = 'en';
+
+function toggleLanguage() {
+  currentLang = currentLang === 'en' ? 'sw' : 'en';
+  setLang(currentLang);
+}
+
 function setLang(lang){
+  currentLang = lang;
   document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+  document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
   
   document.querySelectorAll('[data-en][data-sw]').forEach(el => {
     if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
