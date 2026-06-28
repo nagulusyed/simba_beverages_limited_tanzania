@@ -105,10 +105,12 @@ nav.scrolled{background:rgba(13,10,6,0.98)}
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .75s ease,transform .75s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 78% 50%,rgba(245,166,35,.09) 0%,transparent 60%),radial-gradient(ellipse 40% 50% at 18% 80%,rgba(74,124,63,.06) 0%,transparent 50%),linear-gradient(160deg,#0D0A06 0%,#1A0F02 55%,#0D0A06 100%)}
-.hero-kilimanjaro{position:absolute;top:0;right:0;width:52%;height:100%;clip-path:polygon(28% 100%,62% 0%,100% 100%);background:linear-gradient(135deg,rgba(245,166,35,.06) 0%,transparent 65%)}
-.hero-silhouette{position:absolute;bottom:0;left:0;right:0;height:200px;opacity:.14}
-.hero-content{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:4rem;padding:8rem 3rem 4rem;max-width:1200px;margin:0 auto}
+.hero-bg{position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse 60% 70% at 78% 50%,rgba(245,166,35,.09) 0%,transparent 60%),radial-gradient(ellipse 40% 50% at 18% 80%,rgba(74,124,63,.06) 0%,transparent 50%),linear-gradient(160deg,#0D0A06 0%,#1A0F02 55%,#0D0A06 100%)}
+.hero-bg-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero-video-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.55);z-index:1}
+.hero-kilimanjaro{position:absolute;top:0;right:0;width:52%;height:100%;z-index:2;clip-path:polygon(28% 100%,62% 0%,100% 100%);background:linear-gradient(135deg,rgba(245,166,35,.06) 0%,transparent 65%)}
+.hero-silhouette{position:absolute;bottom:0;left:0;right:0;height:200px;opacity:.14;z-index:2}
+.hero-content{position:relative;z-index:3;width:100%;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:4rem;padding:8rem 3rem 4rem;max-width:1200px;margin:0 auto}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1.5rem}
 .hero-eyebrow::before{content:'';display:block;width:32px;height:2px;background:var(--gold)}
 .hero-headline{font-family:'Oswald',sans-serif;font-size:clamp(2rem,9vw,5.5rem);font-weight:700;line-height:.95;letter-spacing:.02em;text-transform:uppercase;margin-bottom:1.5rem}
@@ -210,6 +212,12 @@ nav.scrolled{background:rgba(13,10,6,0.98)}
 .result-val.gold{color:var(--gold)}
 input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:4px;background:rgba(245,166,35,.2);border-radius:2px;outline:none}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--gold);cursor:pointer;box-shadow:0 0 0 4px rgba(245,166,35,.2)}
+@keyframes shake {
+  0%, 100% {transform: translateX(0);}
+  25% {transform: translateX(-5px);}
+  50% {transform: translateX(5px);}
+  75% {transform: translateX(-5px);}
+}
 /* ── QUOTE PREFILL INDICATOR ── */
 #enquiryBtn{position:relative;overflow:hidden}
 #enquiryBtn.quote-loaded::after{content:'✦ QUOTE READY';position:absolute;top:3px;right:10px;font-size:9px;letter-spacing:.1em;background:rgba(13,10,6,.35);padding:2px 7px;border-radius:10px}
@@ -251,9 +259,53 @@ footer{background:#080602;padding:5rem 0 2rem;border-top:1px solid var(--border-
 .footer-links a:hover{color:var(--gold)}
 .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:2rem;border-top:1px solid rgba(245,166,35,.08)}
 .footer-copy{font-size:12px;color:rgba(253,246,233,.22);letter-spacing:.05em}
-.wa-float{position:fixed;bottom:28px;right:28px;z-index:999;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);text-decoration:none;transition:transform .2s,box-shadow .2s}
-.wa-float:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(37,211,102,.55)}
-.wa-float svg{width:30px;height:30px;fill:white}
+/* ── WHATSAPP WIDGET ── */
+.wa-widget {
+  position: fixed; bottom: 28px; right: 28px; z-index: 1000;
+  display: flex; flex-direction: column; align-items: flex-end;
+}
+.wa-popover {
+  width: 320px; background: rgba(20, 15, 10, 0.95);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-gold); border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5); margin-bottom: 20px;
+  transform-origin: bottom right; transform: scale(0); opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s;
+  pointer-events: none; overflow: hidden;
+}
+.wa-popover.open { transform: scale(1); opacity: 1; pointer-events: auto; }
+.wa-header {
+  background: var(--gold); color: var(--black); padding: 12px 16px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.wa-close {
+  background: none; border: none; color: var(--black); font-size: 24px;
+  cursor: pointer; line-height: 1; padding: 0; outline: none;
+}
+.wa-body { padding: 16px; }
+.wa-textarea {
+  width: 100%; height: 80px; background: rgba(255,255,255,0.9);
+  border: 1px solid #ccc; border-radius: 6px; padding: 10px;
+  font-family: 'Inter', sans-serif; font-size: 13px; resize: none;
+  color: #333; margin-bottom: 12px; outline: none;
+}
+.wa-textarea:focus { border-color: var(--gold); }
+.wa-send-btn {
+  width: 100%; background: #25D366; color: white; border: none;
+  padding: 10px; border-radius: 6px; font-family: 'Oswald', sans-serif;
+  font-size: 14px; font-weight: 600; cursor: pointer;
+  display: flex; justify-content: center; align-items: center;
+  transition: background 0.2s; letter-spacing: 0.05em;
+}
+.wa-send-btn:hover { background: #128C7E; }
+.wa-float{
+  width: 56px; height: 56px; background: #25D366; border-radius: 50%; border: none;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,.4); cursor: pointer; outline: none;
+  transition: transform .2s, box-shadow .2s;
+}
+.wa-float:hover{ transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,.55); }
+.wa-float svg{ width: 30px; height: 30px; fill: white; }
 /* ── TESTIMONIALS ── */
 .testimonials-section { padding: 5rem 0 3rem; background: var(--black); }
 .testimonials-header { text-align: center; margin-bottom: 3rem; }
@@ -335,6 +387,13 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
 input[type=number] { -moz-appearance: textfield; }
 
+@media (max-width: 768px) {
+  .hero-bg-video, .hero-video-overlay { display: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-video, .hero-video-overlay { display: none !important; }
+}
+
 /* ── AGE GATE ── */
 .age-gate-overlay {
   position: fixed; top: 0; left: 0; right: 0; bottom: 0;
@@ -399,6 +458,8 @@ input[type=number] { -moz-appearance: textfield; }
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-bg"></div>
+  <video class="hero-bg-video" autoplay loop muted playsinline preload="metadata" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"></video>
+  <div class="hero-video-overlay"></div>
   <div class="hero-kilimanjaro"></div>
   <svg class="hero-silhouette" viewBox="0 0 1440 200" preserveAspectRatio="none" fill="none">
     <rect x="0" y="160" width="1440" height="40" fill="#F5A623"/>
@@ -612,6 +673,7 @@ input[type=number] { -moz-appearance: textfield; }
               </div>
             </div>
             <input type="range" id="quantitySlider" min="10" max="2000" value="10" step="10">
+            <div id="qtyWarning" style="display:none; color:#E24B4A; font-size:12px; margin-top:8px; font-weight:600; text-align:right;" data-en="Minimum order is 10 cases" data-sw="Kiwango cha chini cha oda ni kreti 10">Minimum order is 10 cases</div>
           </div>
           <div class="calc-results-box">
             <div class="result-grid" style="grid-template-columns:1fr; gap:0;">
@@ -809,9 +871,28 @@ input[type=number] { -moz-appearance: textfield; }
   </div>
 </footer>
 
-<a href="https://wa.me/255713822240" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-</a>
+<div class="wa-widget" id="waWidget">
+  <div class="wa-popover" id="waPopover">
+    <div class="wa-header">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <span style="font-size:1.2rem;">🦁</span>
+        <span style="font-weight:600; font-family:'Oswald',sans-serif; letter-spacing:0.05em;" data-en="Simba Beverages" data-sw="Simba Beverages">Simba Beverages</span>
+      </div>
+      <button class="wa-close" onclick="toggleWaPopover(event)" aria-label="Close">×</button>
+    </div>
+    <div class="wa-body">
+      <p style="font-size:12px; margin-bottom:8px; color:#ddd;" data-en="Chat with our sales team" data-sw="Wasiliana na mauzo">Chat with our sales team</p>
+      <textarea id="waWidgetMsg" class="wa-textarea">Hi Simba Beverages, I'd like to enquire about wholesale pricing for Vin Nkolo Mboka.</textarea>
+      <button class="wa-send-btn" onclick="sendWaWidget()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="white" style="margin-right:6px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        <span data-en="Send to WhatsApp" data-sw="Tuma WhatsApp">Send to WhatsApp</span>
+      </button>
+    </div>
+  </div>
+  <button class="wa-float" onclick="toggleWaPopover(event)" aria-label="Open WhatsApp Chat">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </button>
+</div>
 
 <script>
 // MOBILE MENU
@@ -852,14 +933,36 @@ let quoteData=null;
 function updateCalc(e){
   let qty=parseInt(document.getElementById('quantitySlider').value,10);
   if(e && e.target.id === 'quantityInput') {
-    qty = parseInt(document.getElementById('quantityInput').value, 10) || 10;
-    document.getElementById('quantitySlider').value = qty;
+    qty = parseInt(document.getElementById('quantityInput').value, 10) || 0;
+    if (qty >= 10) {
+      document.getElementById('quantitySlider').value = qty;
+    }
   } else {
     document.getElementById('quantityInput').value = qty;
   }
   
-  const prod=PRODUCTS[document.getElementById('productSelect').value];
+  const warn = document.getElementById('qtyWarning');
+  const btn = document.getElementById('enquiryBtn');
   
+  if (qty < 10) {
+    warn.style.display = 'block';
+    warn.style.animation = 'none';
+    warn.offsetHeight; // trigger reflow
+    warn.style.animation = 'shake 0.4s';
+    btn.disabled = true;
+    btn.style.opacity = '0.5';
+    btn.style.cursor = 'not-allowed';
+    document.getElementById('freeCasesVal').textContent = '0';
+    quoteData = null;
+    return;
+  }
+  
+  warn.style.display = 'none';
+  btn.disabled = false;
+  btn.style.opacity = '1';
+  btn.style.cursor = 'pointer';
+  
+  const prod=PRODUCTS[document.getElementById('productSelect').value];
   const freeCases = Math.floor(qty / 100) * 7;
   const sel=document.getElementById('productSelect');
   const pname=sel.options[sel.selectedIndex].text;
@@ -1091,6 +1194,15 @@ let currentLang = 'en';
 function toggleLanguage() {
   currentLang = currentLang === 'en' ? 'sw' : 'en';
   setLang(currentLang);
+  // Also translate the WhatsApp Widget textarea explicitly
+  const waTextArea = document.getElementById('waWidgetMsg');
+  if(waTextArea) {
+    if(currentLang === 'sw') {
+      waTextArea.value = "Habari Simba Beverages, ningependa kuulizia bei ya jumla ya Vin Nkolo Mboka.";
+    } else {
+      waTextArea.value = "Hi Simba Beverages, I'd like to enquire about wholesale pricing for Vin Nkolo Mboka.";
+    }
+  }
 }
 
 function setLang(lang){
@@ -1106,6 +1218,36 @@ function setLang(lang){
     }
   });
 }
+
+// ── WHATSAPP WIDGET ──
+function toggleWaPopover(e) {
+  if(e) e.stopPropagation();
+  const popover = document.getElementById('waPopover');
+  popover.classList.toggle('open');
+}
+
+function sendWaWidget() {
+  const msg = document.getElementById('waWidgetMsg').value;
+  const WA_NUMBER = '255713822240';
+  window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
+  document.getElementById('waPopover').classList.remove('open');
+}
+
+document.addEventListener('click', (e) => {
+  const popover = document.getElementById('waPopover');
+  const widget = document.getElementById('waWidget');
+  if (popover && popover.classList.contains('open') && widget && !widget.contains(e.target)) {
+    popover.classList.remove('open');
+  }
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    const popover = document.getElementById('waPopover');
+    if (popover && popover.classList.contains('open')) {
+      popover.classList.remove('open');
+    }
+  }
+});
 </script>
 </body>
 </html>
