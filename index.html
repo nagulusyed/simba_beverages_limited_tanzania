@@ -390,6 +390,9 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
 input[type=number] { -moz-appearance: textfield; }
 
+@media (max-width: 768px) {
+  .hero-bg-video, .hero-video-overlay { display: none !important; }
+}
 @media (prefers-reduced-motion: reduce) {
   .hero-bg-video, .hero-video-overlay { display: none !important; }
 }
