@@ -69,7 +69,7 @@ nav.scrolled{background:rgba(13,10,6,0.98)}
 .bottle-stage{position:relative;width:340px;height:560px}
 .bottle-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:320px;height:320px;background:radial-gradient(circle,rgba(245,166,35,.22) 0%,transparent 70%);border-radius:50%;animation:pulse-glow 3.5s ease-in-out infinite}
 @keyframes pulse-glow{0%,100%{opacity:.65;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.1)}}
-.bottle-float{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);animation:float 4s ease-in-out infinite}
+.bottle-float{position:absolute;top:42%;left:50%;transform:translate(-50%,-50%);animation:float 4s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translate(-50%,-50%) translateY(0)}50%{transform:translate(-50%,-50%) translateY(-16px)}}
 .halisi-badge{position:absolute;top:16px;right:4px;width:82px;height:82px;animation:spin-slow 22s linear infinite}
 @keyframes spin-slow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
@@ -256,17 +256,37 @@ footer{background:#080602;padding:5rem 0 2rem;border-top:1px solid var(--border-
 <nav id="mainNav">
   <a href="#home" class="nav-logo">
     <svg class="logo-mark" viewBox="0 0 120 120" fill="none">
-      <path d="M60 8 L65 2 L70 8 L76 4 L79 11 L86 9 L87 17 L94 17 L93 25 L100 27 L97 34 L104 38 L99 44 L105 50 L99 55 L104 62 L97 66 L100 73 L93 75 L94 83 L87 83 L86 91 L79 89 L76 96 L70 92 L65 98 L60 92 L55 98 L50 92 L44 96 L41 89 L34 91 L33 83 L26 83 L27 75 L20 73 L23 66 L16 62 L21 55 L15 50 L21 44 L16 38 L23 34 L20 27 L27 25 L26 17 L33 17 L34 9 L41 11 L44 4 L50 8 Z" fill="#F5A623" stroke="#C8841A" stroke-width="1"/>
-      <circle cx="60" cy="50" r="28" fill="#F5A623"/>
-      <path d="M38 45 Q60 32 82 45" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-      <path d="M44 44 Q40 38 46 35 Q44 40 50 41" fill="white" opacity="0.85"/>
-      <path d="M76 44 Q80 38 74 35 Q76 40 70 41" fill="white" opacity="0.85"/>
-      <rect x="30" y="49" width="60" height="14" rx="2" fill="white"/>
-      <text x="60" y="61" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="10" font-weight="900" fill="#0D0A06" letter-spacing="1">SBL</text>
-      <circle cx="60" cy="73" r="16" fill="#F5A623" stroke="#C8841A" stroke-width="1"/>
-      <circle cx="60" cy="73" r="11" fill="#F5A623" stroke="white" stroke-width="1.5"/>
+      <defs>
+        <mask id="cap-mask">
+          <rect width="120" height="120" fill="white"/>
+          <circle cx="60" cy="2" r="6" fill="black" transform="rotate(0 60 60)"/><circle cx="60" cy="2" r="6" fill="black" transform="rotate(18 60 60)"/><circle cx="60" cy="2" r="6" fill="black" transform="rotate(36 60 60)"/><circle cx="60" cy="2" r="6" fill="black" transform="rotate(54 60 60)"/><circle cx="60" cy="2" r="6" fill="black" transform="rotate(72 60 60)"/><circle cx="60" cy="2" r="6" fill="black" transform="rotate(90 60 60)"/><circle cx="60" cy="2" r="6" fill="black" transform="rotate(108 60 60)"/><circle cx="60" cy="2" r="6" fill="black" transform="rotate(126 60 60)"/><circle cx="60" cy="2" r="6" fill="black" transform="rotate(144 60 60)"/><circle cx="60" cy="2" r="6" fill="black" transform="rotate(162 60 60)"/><circle cx="60" cy="2" r="6" fill="black" transform="rotate(180 60 60)"/><circle cx="60" cy="2" r="6" fill="black" transform="rotate(198 60 60)"/><circle cx="60" cy="2" r="6" fill="black" transform="rotate(216 60 60)"/><circle cx="60" cy="2" r="6" fill="black" transform="rotate(234 60 60)"/><circle cx="60" cy="2" r="6" fill="black" transform="rotate(252 60 60)"/><circle cx="60" cy="2" r="6" fill="black" transform="rotate(270 60 60)"/><circle cx="60" cy="2" r="6" fill="black" transform="rotate(288 60 60)"/><circle cx="60" cy="2" r="6" fill="black" transform="rotate(306 60 60)"/><circle cx="60" cy="2" r="6" fill="black" transform="rotate(324 60 60)"/><circle cx="60" cy="2" r="6" fill="black" transform="rotate(342 60 60)"/>
+        </mask>
+      </defs>
+      <circle cx="60" cy="60" r="56" fill="#F8F4EE" mask="url(#cap-mask)"/>
+      <circle cx="60" cy="60" r="45" fill="#0D0A06"/>
+      <circle cx="60" cy="60" r="42" fill="#F8F4EE"/>
+      <circle cx="60" cy="60" r="30" stroke="#F5A623" stroke-width="20" fill="none"/>
+      <circle cx="60" cy="60" r="20" fill="#0D0A06"/>
+      <circle cx="60" cy="60" r="15" fill="none" stroke="#F8F4EE" stroke-width="1.5"/>
+      <g fill="#F8F4EE">
+        <path d="M29 35 Q30 25 36 30 Q37 35 29 35" />
+        <path d="M26 38 Q22 29 28 27 Q31 31 26 38" />
+        <path d="M91 35 Q90 25 84 30 Q83 35 91 35" />
+        <path d="M94 38 Q98 29 92 27 Q89 31 94 38" />
+      </g>
+      <rect x="2" y="46" width="116" height="28" fill="#F8F4EE"/>
+      <line x1="8" y1="46" x2="112" y2="46" stroke="#0D0A06" stroke-width="3"/>
+      <line x1="8" y1="74" x2="112" y2="74" stroke="#0D0A06" stroke-width="3"/>
+      <text x="61.5" y="66.5" text-anchor="middle" font-family="'Arial Black', Impact, sans-serif" font-size="20" font-weight="900" fill="#8B8B8B" letter-spacing="1">SBL</text>
+      <text x="60" y="65" text-anchor="middle" font-family="'Arial Black', Impact, sans-serif" font-size="20" font-weight="900" fill="#0D0A06" stroke="#F8F4EE" stroke-width="1.5" stroke-linejoin="round" letter-spacing="1">SBL</text>
+      <text x="60" y="65" text-anchor="middle" font-family="'Arial Black', Impact, sans-serif" font-size="20" font-weight="900" fill="#0D0A06" letter-spacing="1">SBL</text>
     </svg>
-    <div><div class="brand-name">SIMBA</div><div class="brand-sub">Beverages Limited · Tanzania</div></div>
+    <div style="width:2.5px; height:42px; background:var(--cream); margin:0 6px; border-radius:1px;"></div>
+    <div style="display:flex; flex-direction:column; justify-content:center; gap:3px;">
+      <div style="font-family:'Arial Black', Impact, sans-serif; font-size:22px; font-weight:900; color:var(--gold); line-height:0.9; letter-spacing:1px; text-shadow: 1px 1px 0px rgba(255,255,255,0.2), 2px 2px 0px rgba(0,0,0,0.8);">SIMBA</div>
+      <div style="font-family:'Oswald', sans-serif; font-size:12px; font-weight:700; color:var(--cream); line-height:1; letter-spacing:0.5px;">BEVERAGES LIMITED</div>
+      <div style="font-family:'Oswald', sans-serif; font-size:11px; font-weight:700; color:var(--cream); line-height:1; letter-spacing:0.5px;">TANZANIA</div>
+    </div>
   </a>
   <ul class="nav-links">
     <li><a href="#home">Home</a></li><li><a href="#product">Flagship</a></li>
@@ -322,74 +342,8 @@ footer{background:#080602;padding:5rem 0 2rem;border-top:1px solid var(--border-
           <text x="50" y="54" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="7" font-weight="900" fill="#0D0A06">HALISI</text>
           <text x="50" y="63" text-anchor="middle" font-family="Arial,sans-serif" font-size="5" fill="#1A0F02">★ AUTHENTIC ★</text>
         </svg>
-        <div class="bottle-float">
-          <svg width="190" height="510" viewBox="0 0 190 510" fill="none">
-            <defs>
-              <linearGradient id="bG" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#1A4A1E"/><stop offset="30%" stop-color="#2A6E30"/><stop offset="70%" stop-color="#1E5522"/><stop offset="100%" stop-color="#122E15"/></linearGradient>
-              <linearGradient id="lG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F8F4EE"/><stop offset="100%" stop-color="#EDE5D8"/></linearGradient>
-              <linearGradient id="rB" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8B1A1A"/><stop offset="100%" stop-color="#6B1111"/></linearGradient>
-              <linearGradient id="cG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3A7A3E"/><stop offset="100%" stop-color="#1A4A1E"/></linearGradient>
-              <radialGradient id="lC" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FAC55A"/><stop offset="100%" stop-color="#C8841A"/></radialGradient>
-              <linearGradient id="sh" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="rgba(255,255,255,0)"/><stop offset="50%" stop-color="rgba(255,255,255,0.18)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></linearGradient>
-            </defs>
-            <rect x="72" y="0" width="46" height="6" rx="3" fill="url(#cG)"/>
-            <rect x="68" y="6" width="54" height="3" rx="1" fill="#1A4A1E"/>
-            <rect x="66" y="9" width="58" height="18" rx="2" fill="url(#cG)"/>
-            <line x1="66" y1="13" x2="124" y2="13" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-            <line x1="66" y1="17" x2="124" y2="17" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-            <line x1="66" y1="21" x2="124" y2="21" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-            <rect x="63" y="27" width="64" height="8" rx="2" fill="#122E15"/>
-            <rect x="71" y="35" width="48" height="50" rx="2" fill="url(#bG)"/>
-            <rect x="78" y="35" width="8" height="50" rx="1" fill="rgba(255,255,255,0.07)"/>
-            <path d="M71 85 Q44 108 40 140 L150 140 Q146 108 119 85 Z" fill="url(#bG)"/>
-            <rect x="40" y="138" width="110" height="315" rx="6" fill="url(#bG)"/>
-            <rect x="52" y="138" width="14" height="315" rx="3" fill="rgba(255,255,255,0.055)"/>
-            <rect x="44" y="158" width="102" height="248" rx="4" fill="url(#lG)"/>
-            <path d="M44 158 L53 145 L62 155 L78 142 L95 152 L112 142 L128 155 L137 145 L146 158 Z" fill="#F5A623"/>
-            <circle cx="95" cy="146" r="4" fill="#8B1A1A"/>
-            <circle cx="78" cy="148" r="3" fill="#1A3A8B"/>
-            <circle cx="112" cy="148" r="3" fill="#1A3A8B"/>
-            <rect x="44" y="156" width="102" height="9" fill="#F5A623"/>
-            <rect x="44" y="164" width="102" height="2" fill="#C8841A"/>
-            <circle cx="95" cy="208" r="38" fill="none" stroke="#F5A623" stroke-width="3" stroke-dasharray="5 3" opacity="0.6"/>
-            <circle cx="95" cy="208" r="33" fill="url(#lC)" opacity="0.25"/>
-            <circle cx="95" cy="208" r="27" fill="url(#lC)"/>
-            <line x1="88" y1="188" x2="88" y2="194" stroke="#8B5E0A" stroke-width="1.5" stroke-linecap="round"/>
-            <line x1="95" y1="186" x2="95" y2="193" stroke="#8B5E0A" stroke-width="1.5" stroke-linecap="round"/>
-            <line x1="102" y1="188" x2="102" y2="194" stroke="#8B5E0A" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M70 196 Q66 188 74 188 Q78 192 76 198 Z" fill="#E8950A"/>
-            <path d="M120 196 Q124 188 116 188 Q112 192 114 198 Z" fill="#E8950A"/>
-            <path d="M71 195 Q68 190 74 190 Q76 192 75 196 Z" fill="#C86800"/>
-            <path d="M119 195 Q122 190 116 190 Q114 192 115 196 Z" fill="#C86800"/>
-            <ellipse cx="85" cy="204" rx="6" ry="5" fill="#1A0F02"/>
-            <ellipse cx="105" cy="204" rx="6" ry="5" fill="#1A0F02"/>
-            <circle cx="83" cy="202" r="2" fill="rgba(255,255,255,0.55)"/>
-            <circle cx="103" cy="202" r="2" fill="rgba(255,255,255,0.55)"/>
-            <ellipse cx="85" cy="205" rx="3.5" ry="4" fill="#0A0602"/>
-            <ellipse cx="105" cy="205" rx="3.5" ry="4" fill="#0A0602"/>
-            <path d="M91 215 Q95 212 99 215 Q95 220 91 215 Z" fill="#8B3A0A"/>
-            <path d="M89 219 Q95 225 101 219" stroke="#8B3A0A" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-            <line x1="95" y1="220" x2="95" y2="225" stroke="#8B3A0A" stroke-width="1.4"/>
-            <circle cx="80" cy="218" r="1" fill="rgba(139,94,10,0.6)"/><circle cx="77" cy="215" r="1" fill="rgba(139,94,10,0.6)"/>
-            <circle cx="110" cy="218" r="1" fill="rgba(139,94,10,0.6)"/><circle cx="113" cy="215" r="1" fill="rgba(139,94,10,0.6)"/>
-            <line x1="66" y1="216" x2="83" y2="217" stroke="rgba(139,94,10,0.4)" stroke-width="0.8"/>
-            <line x1="66" y1="213" x2="83" y2="214" stroke="rgba(139,94,10,0.4)" stroke-width="0.8"/>
-            <line x1="107" y1="217" x2="124" y2="216" stroke="rgba(139,94,10,0.4)" stroke-width="0.8"/>
-            <line x1="107" y1="214" x2="124" y2="213" stroke="rgba(139,94,10,0.4)" stroke-width="0.8"/>
-            <path d="M88 228 Q95 234 102 228" stroke="#C8841A" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-            <text x="95" y="251" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#888" letter-spacing="5">VIN</text>
-            <rect x="44" y="255" width="102" height="3" fill="url(#rB)"/>
-            <text x="95" y="277" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="13.5" font-weight="900" fill="#1A0F02" letter-spacing="0.5">NKOLOMOKA</text>
-            <rect x="55" y="282" width="80" height="1" fill="#C8841A" opacity="0.5"/>
-            <text x="95" y="294" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" fill="#666">Ginger-based Alcoholic Beverage</text>
-            <path d="M55 302 L60 296 L65 302 L70 296 L75 302 L80 296 L85 302 L90 296 L95 302 L100 296 L105 302 L110 296 L115 302 L120 296 L125 302 L130 296 L135 302" stroke="#C8841A" stroke-width="0.8" fill="none" opacity="0.4"/>
-            <rect x="44" y="378" width="102" height="18" fill="url(#rB)"/>
-            <text x="95" y="391" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" font-weight="700" fill="rgba(253,246,233,0.85)" letter-spacing="0.8">NGUVU YA SIMBA, FAHARI YA TANZANIA</text>
-            <path d="M71 85 Q44 108 40 140 L150 140 Q146 108 119 85 Z" fill="url(#sh)"/>
-            <rect x="40" y="138" width="110" height="315" rx="6" fill="url(#sh)"/>
-            <path d="M40 453 Q40 466 52 466 L138 466 Q150 466 150 453 L150 450 L40 450 Z" fill="#0E2E12"/>
-            <ellipse cx="95" cy="450" rx="30" ry="6" fill="#122E15"/>
-          </svg>
+<div class="bottle-float">
+          <img src="images/hero-bottle.png" alt="Vin Nkolomoka Bottle" style="height: 540px; width: auto; object-fit: contain;">
         </div>
       </div>
     </div>
@@ -436,17 +390,7 @@ footer{background:#080602;padding:5rem 0 2rem;border-top:1px solid var(--border-
     <div class="range-grid reveal">
       <div class="prod-card wine">
         <div class="prod-bottle-zone"><div class="prod-glow wine-glow"></div>
-          <svg width="80" height="160" viewBox="0 0 80 160" fill="none"><defs><linearGradient id="wg" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#1A4A1E"/><stop offset="50%" stop-color="#2A6E30"/><stop offset="100%" stop-color="#122E15"/></linearGradient></defs>
-          <rect x="32" y="0" width="16" height="8" rx="3" fill="#2A6A30"/><rect x="28" y="8" width="24" height="16" rx="2" fill="url(#wg)"/>
-          <path d="M28 24 Q16 36 14 52 L66 52 Q64 36 52 24 Z" fill="url(#wg)"/><rect x="14" y="50" width="52" height="88" rx="4" fill="url(#wg)"/>
-          <rect x="17" y="62" width="46" height="62" rx="3" fill="#F8F4EE"/>
-          <path d="M17 62 L21 55 L25 60 L32 53 L40 58 L48 53 L55 60 L59 55 L63 62Z" fill="#F5A623"/>
-          <circle cx="40" cy="83" r="14" fill="#F5A623"/>
-          <ellipse cx="36" cy="80" rx="3" ry="2.5" fill="#1A0F02"/><ellipse cx="44" cy="80" rx="3" ry="2.5" fill="#1A0F02"/>
-          <path d="M36 86 Q40 90 44 86" stroke="#8B3A0A" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-          <text x="40" y="103" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="5" fill="#1A0F02">NKOLO MBOKA</text>
-          <rect x="17" y="118" width="46" height="6" fill="#8B1A1A"/>
-          <path d="M14 138 Q14 142 18 142 L62 142 Q66 142 66 138 L66 136 L14 136 Z" fill="#0E2E12"/></svg>
+          <img src="images/bottle-wine.png" alt="Nkolo Mboka" style="height: 160px; width: auto; object-fit: contain; position: relative; z-index: 2;">
         </div>
         <div class="prod-category">Traditional Wine</div><div class="prod-name">Nkolo Mboka</div>
         <div class="prod-desc">A premium traditional wine crafted with natural ingredients, offering a rich and authentic taste of African heritage.</div>
@@ -454,50 +398,27 @@ footer{background:#080602;padding:5rem 0 2rem;border-top:1px solid var(--border-
       </div>
       <div class="prod-card kombu">
         <div class="prod-bottle-zone"><div class="prod-glow kombu-glow"></div>
-          <svg width="75" height="165" viewBox="0 0 75 165" fill="none"><defs><linearGradient id="kg" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#3D2200"/><stop offset="50%" stop-color="#6B3E00"/><stop offset="100%" stop-color="#2A1800"/></linearGradient></defs>
-          <rect x="14" y="0" width="10" height="5" rx="2" fill="#C8841A"/><rect x="11" y="5" width="53" height="8" rx="3" fill="#A06A10"/>
-          <rect x="8" y="13" width="59" height="130" rx="6" fill="url(#kg)"/><rect x="8" y="30" width="59" height="96" fill="#4A2800" opacity="0.8"/>
-          <text x="37" y="70" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="7" fill="#F5A623">OLA</text>
-          <text x="37" y="80" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="6" fill="#F5A623">KOMBUCHA</text>
-          <text x="37" y="92" text-anchor="middle" font-family="Arial,sans-serif" font-size="5" fill="rgba(245,166,35,0.6)">PROBIOTIC TEA</text>
-          <circle cx="37" cy="55" r="10" fill="rgba(245,166,35,0.15)" stroke="#F5A623" stroke-width="0.8"/>
-          <text x="37" y="58" text-anchor="middle" font-family="Arial,sans-serif" font-size="8">🍵</text>
-          <ellipse cx="37" cy="143" rx="29" ry="5" fill="#2A1800"/></svg>
+          <img src="images/bottle-kombu.png" alt="Ola Kombucha" style="height: 160px; width: auto; object-fit: contain; position: relative; z-index: 2;">
         </div>
         <div class="prod-category">Probiotic Tea</div><div class="prod-name">Ola Kombucha</div>
         <div class="prod-desc">Naturally fermented sparkling kombucha tea packed with probiotics and organic nutrients to refresh and revitalize.</div>
-        <div class="size-tags"><span class="size-tag">330ml Can</span><span class="size-tag">500ml</span></div>
+        <div class="size-tags"><span class="size-tag">330ml</span></div>
       </div>
       <div class="prod-card ginger">
         <div class="prod-bottle-zone"><div class="prod-glow ginger-glow"></div>
-          <svg width="75" height="165" viewBox="0 0 75 165" fill="none"><defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#2A3A10"/><stop offset="50%" stop-color="#4A6A18"/><stop offset="100%" stop-color="#1A2808"/></linearGradient></defs>
-          <rect x="14" y="0" width="10" height="5" rx="2" fill="#8AAA3D"/><rect x="11" y="5" width="53" height="8" rx="3" fill="#6A8A2D"/>
-          <rect x="8" y="13" width="59" height="130" rx="6" fill="url(#gg)"/><rect x="8" y="30" width="59" height="96" fill="#2A4A08" opacity="0.8"/>
-          <text x="37" y="68" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="7" fill="#F5A623">GINGER</text>
-          <text x="37" y="78" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="7" fill="#F5A623">PUNCH</text>
-          <text x="37" y="90" text-anchor="middle" font-family="Arial,sans-serif" font-size="5" fill="rgba(245,166,35,0.6)">SPICED BEVERAGE</text>
-          <circle cx="37" cy="54" r="10" fill="rgba(245,166,35,0.15)" stroke="#F5A623" stroke-width="0.8"/>
-          <text x="37" y="57" text-anchor="middle" font-family="Arial,sans-serif" font-size="9">🫚</text>
-          <ellipse cx="37" cy="143" rx="29" ry="5" fill="#1A2808"/></svg>
+          <img src="images/bottle-ginger.png" alt="Ginger Punch" style="height: 160px; width: auto; object-fit: contain; position: relative; z-index: 2;">
         </div>
         <div class="prod-category">Spiced Beverage</div><div class="prod-name">Ginger Punch</div>
         <div class="prod-desc">Zesty, fiery, and bold ginger beverage brewed from the finest local ginger root and natural spices.</div>
-        <div class="size-tags"><span class="size-tag">330ml Can</span><span class="size-tag">500ml</span><span class="size-tag">1.5L</span></div>
+        <div class="size-tags"><span class="size-tag">330ml</span></div>
       </div>
       <div class="prod-card energy">
         <div class="prod-bottle-zone"><div class="prod-glow energy-glow"></div>
-          <svg width="75" height="165" viewBox="0 0 75 165" fill="none"><defs><linearGradient id="eg" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#1A0A3A"/><stop offset="50%" stop-color="#3A1A6A"/><stop offset="100%" stop-color="#0A051A"/></linearGradient></defs>
-          <rect x="14" y="0" width="10" height="5" rx="2" fill="#7B3DAA"/><rect x="11" y="5" width="53" height="8" rx="3" fill="#5A2A88"/>
-          <rect x="8" y="13" width="59" height="130" rx="6" fill="url(#eg)"/><rect x="8" y="30" width="59" height="96" fill="#120828" opacity="0.85"/>
-          <path d="M41 40 L30 62 L38 62 L34 80 L48 55 L39 55 Z" fill="#F5A623"/>
-          <text x="37" y="95" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="7" fill="#F5A623">HARD</text>
-          <text x="37" y="105" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="7" fill="#F5A623">ROCK</text>
-          <text x="37" y="116" text-anchor="middle" font-family="Arial,sans-serif" font-size="5" fill="rgba(245,166,35,0.6)">ENERGY DRINK</text>
-          <ellipse cx="37" cy="143" rx="29" ry="5" fill="#0A051A"/></svg>
+          <img src="images/bottle-energy.png" alt="Hard Rock" style="height: 160px; width: auto; object-fit: contain; position: relative; z-index: 2;">
         </div>
         <div class="prod-category">Energy Drink</div><div class="prod-name">Hard Rock</div>
         <div class="prod-desc">High-performance energy drink formulated to deliver sustained physical stamina and mental focus.</div>
-        <div class="size-tags"><span class="size-tag">250ml Can</span><span class="size-tag">500ml Can</span></div>
+        <div class="size-tags"><span class="size-tag">330ml</span></div>
       </div>
     </div>
   </div>
@@ -554,17 +475,11 @@ footer{background:#080602;padding:5rem 0 2rem;border-top:1px solid var(--border-
             <div style="flex:1">
               <label class="calc-label" for="productSelect">Select Product</label>
               <select id="productSelect" class="calc-select">
-                <option value="nkolomoka_250">Vin Nkolomoka 250ml</option>
-                <option value="nkolomoka_500" selected>Vin Nkolomoka 500ml</option>
-                <option value="nkolomoka_1l">Vin Nkolomoka 1 Litre</option>
-                <option value="nkolo_mboka">Nkolo Mboka 330ml</option>
-                <option value="ola_kombucha_can">Ola Kombucha 330ml Can</option>
-                <option value="ola_kombucha_500">Ola Kombucha 500ml</option>
-                <option value="ginger_punch_can">Ginger Punch 330ml Can</option>
-                <option value="ginger_punch_500">Ginger Punch 500ml</option>
-                <option value="ginger_punch_1l5">Ginger Punch 1.5L</option>
-                <option value="hard_rock_250">Hard Rock 250ml Can</option>
-                <option value="hard_rock_500">Hard Rock 500ml Can</option>
+                <option value="nkolomoka_330" selected>Vin Nkolomoka 330ml</option>
+                <option value="nkolo_mboka_330">Nkolo Mboka 330ml</option>
+                <option value="ola_kombucha_330">Ola Kombucha 330ml</option>
+                <option value="ginger_punch_330">Ginger Punch 330ml</option>
+                <option value="hard_rock_330">Hard Rock 330ml</option>
               </select>
             </div>
             <div style="text-align:right;flex-shrink:0">
@@ -611,8 +526,8 @@ footer{background:#080602;padding:5rem 0 2rem;border-top:1px solid var(--border-
         <p class="section-desc">Whether you're a local retailer, national wholesaler, corporate client, or looking to join our logistics pipeline — we'd love to hear from you.</p>
         <div class="contact-block"><div class="contact-icon-box">📍</div><div><div class="contact-block-title">Corporate HQ</div><div class="contact-block-val">Plot 1204, Industrial Area, Dar es Salaam, Tanzania</div></div></div>
         <div class="contact-block"><div class="contact-icon-box">✉️</div><div><div class="contact-block-title">Distribution Enquiries</div><div class="contact-block-val"><a href="mailto:sales@simba-beverages.co.tz">sales@simba-beverages.co.tz</a></div></div></div>
-        <div class="contact-block"><div class="contact-icon-box">📞</div><div><div class="contact-block-title">Customer Service</div><div class="contact-block-val"><a href="tel:+255222124455">+255 22 212 4455</a></div></div></div>
-        <div class="contact-block" style="margin-bottom:0"><div class="contact-icon-box">💬</div><div><div class="contact-block-title">WhatsApp</div><div class="contact-block-val"><a href="https://wa.me/255222124455" target="_blank">Chat with us on WhatsApp</a></div></div></div>
+        <div class="contact-block"><div class="contact-icon-box">📞</div><div><div class="contact-block-title">Customer Service</div><div class="contact-block-val"><a href="tel:+919848657887">+91 9848657887</a></div></div></div>
+        <div class="contact-block" style="margin-bottom:0"><div class="contact-icon-box">💬</div><div><div class="contact-block-title">WhatsApp</div><div class="contact-block-val"><a href="https://wa.me/919848657887" target="_blank">Chat with us on WhatsApp</a></div></div></div>
       </div>
       <div class="reveal">
         <!-- Quote pre-fill banner — hidden until calculator fires -->
@@ -628,7 +543,7 @@ footer{background:#080602;padding:5rem 0 2rem;border-top:1px solid var(--border-
             <div><label class="form-lbl">Last Name *</label><input id="fLastName" type="text" class="form-ctrl" placeholder="Doe" required></div>
           </div>
           <div style="margin-bottom:1.25rem"><label class="form-lbl">Email Address *</label><input id="fEmail" type="email" class="form-ctrl" placeholder="you@company.co.tz" required></div>
-          <div style="margin-bottom:1.25rem"><label class="form-lbl">Phone / WhatsApp</label><input id="fPhone" type="tel" class="form-ctrl" placeholder="+255 7XX XXX XXX"></div>
+          <div style="margin-bottom:1.25rem"><label class="form-lbl">Phone / WhatsApp</label><input id="fPhone" type="tel" class="form-ctrl" placeholder="+91 7XX XXX XXXX"></div>
           <div style="margin-bottom:1.25rem"><label class="form-lbl">Company / Business Name *</label><input id="fCompany" type="text" class="form-ctrl" placeholder="Your business name" required></div>
           <div style="margin-bottom:1.25rem">
             <label class="form-lbl">Partnership Type *</label>
@@ -708,9 +623,9 @@ footer{background:#080602;padding:5rem 0 2rem;border-top:1px solid var(--border-
         <div class="footer-col-title">Connect</div>
         <ul class="footer-links">
           <li><a href="https://www.instagram.com/nkolombokavin" target="_blank">Instagram</a></li>
-          <li><a href="https://wa.me/255222124455">WhatsApp</a></li>
+          <li><a href="https://wa.me/919848657887">WhatsApp</a></li>
           <li><a href="mailto:sales@simba-beverages.co.tz">Email Us</a></li>
-          <li><a href="tel:+255222124455">+255 22 212 4455</a></li>
+          <li><a href="tel:+919848657887">+91 9848657887</a></li>
         </ul>
       </div>
     </div>
@@ -721,7 +636,7 @@ footer{background:#080602;padding:5rem 0 2rem;border-top:1px solid var(--border-
   </div>
 </footer>
 
-<a href="https://wa.me/255222124455" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+<a href="https://wa.me/919848657887" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
 </a>
 
@@ -747,11 +662,11 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
 // ── PRODUCTS & PRICING
 const PRODUCTS={
-  nkolomoka_250:{basePrice:8.50},nkolomoka_500:{basePrice:14.50},nkolomoka_1l:{basePrice:22.00},
-  nkolo_mboka:{basePrice:10.00},
-  ola_kombucha_can:{basePrice:9.50},ola_kombucha_500:{basePrice:13.00},
-  ginger_punch_can:{basePrice:9.00},ginger_punch_500:{basePrice:12.50},ginger_punch_1l5:{basePrice:18.00},
-  hard_rock_250:{basePrice:11.00},hard_rock_500:{basePrice:16.50},
+  nkolomoka_330:{basePrice:14.50},
+  nkolo_mboka_330:{basePrice:10.00},
+  ola_kombucha_330:{basePrice:9.50},
+  ginger_punch_330:{basePrice:9.00},
+  hard_rock_330:{basePrice:16.50},
 };
 function getDiscount(q){if(q>=1000)return 15;if(q>=500)return 10;if(q>=100)return 5;return 0;}
 
@@ -843,7 +758,7 @@ function sendViaWhatsApp(){
     return;
   }
   const f=getFormValues();
-  const WA_NUMBER='255222124455'; // +255 22 212 4455
+  const WA_NUMBER='919848657887'; // +91 7013227416
   const lines=[
     '*New Wholesale Enquiry — Simba Beverages*',
     '',
