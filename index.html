@@ -11,7 +11,36 @@
 <meta property="og:image" content="https://nagulusyed.github.io/simba_beverages_limited_tanzania/images/hero-bottle.png">
 <meta property="og:url" content="https://nagulusyed.github.io/simba_beverages_limited_tanzania/">
 <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
+<!-- Favicon & PWA -->
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192x192.png">
+<link rel="manifest" href="manifest.json">
+
+<!-- REPLACE WITH REAL ID: Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script> -->
+
+<!-- REPLACE WITH REAL ID: Meta Pixel -->
+<!-- <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'XXXXXXXXXXXXXXXX');
+  fbq('track', 'PageView');
+</script> -->
+
 <!-- JSON-LD Structured Data -->
 <script type="application/ld+json">
 {
@@ -72,6 +101,23 @@
 }
 html{scroll-behavior:smooth}
 html,body{font-family:'Inter',sans-serif;background:var(--black);color:var(--cream);overflow-x:hidden;line-height:1.6}
+/* ── PRELOADER ── */
+#sitePreloader {
+  position: fixed; inset: 0; z-index: 999999; background: var(--black);
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+#sitePreloader.loaded { opacity: 0; visibility: hidden; }
+.preloader-content { text-align: center; }
+.preloader-icon {
+  width: 60px; height: auto; margin: 0 auto 1rem; display: block;
+  animation: pulse-glow 2s infinite; filter: drop-shadow(0 0 15px rgba(245,166,35,0.4));
+}
+.preloader-text {
+  font-family: 'Oswald', sans-serif; font-size: 14px; color: var(--gold);
+  letter-spacing: 0.3em; text-transform: uppercase; animation: fadeInOut 2s infinite;
+}
+@keyframes fadeInOut { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
 nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:rgba(13,10,6,0.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border-gold);transition:background .3s}
 nav.scrolled{background:rgba(13,10,6,0.98)}
 .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
@@ -264,6 +310,34 @@ footer{background:#080602;padding:5rem 0 2rem;border-top:1px solid var(--border-
   position: fixed; bottom: 30px; right: 30px; z-index: 9999;
   display: flex; flex-direction: column; align-items: flex-end;
 }
+/* ── MOBILE CTA BAR & EXIT INTENT ── */
+.mobile-cta-bar {
+  display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+  background: var(--black); border-top: 1px solid var(--border-gold);
+}
+.mobile-cta-wa, .mobile-cta-quote {
+  flex: 1; text-align: center; padding: 14px 0; font-family: 'Oswald', sans-serif;
+  font-weight: 600; text-transform: uppercase; text-decoration: none; font-size: 14px;
+}
+.mobile-cta-wa { background: #25D366; color: white; }
+.mobile-cta-quote { background: var(--gold); color: var(--black); }
+
+.exit-overlay {
+  position: fixed; inset: 0; z-index: 100000; background: rgba(8,6,2,0.9);
+  backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s;
+}
+.exit-overlay.show { opacity: 1; visibility: visible; }
+.exit-modal {
+  background: #140F0A; border: 1px solid var(--border-gold); border-radius: 12px;
+  padding: 3rem 2.5rem; max-width: 440px; width: 90%; text-align: center; position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+}
+.exit-close {
+  position: absolute; top: 15px; right: 20px; background: none; border: none;
+  color: var(--cream-muted); font-size: 28px; cursor: pointer; line-height: 1;
+}
+.exit-close:hover { color: var(--gold); }
 .wa-popover {
   width: 320px; background: rgba(20, 15, 10, 0.95);
   backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
@@ -298,6 +372,17 @@ footer{background:#080602;padding:5rem 0 2rem;border-top:1px solid var(--border-
   transition: background 0.2s; letter-spacing: 0.05em;
 }
 .wa-send-btn:hover { background: #128C7E; }
+
+/* ── VISUAL POLISH ── */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px; background: var(--gold);
+  z-index: 999999; width: 0%; transition: width 0.1s; pointer-events: none;
+}
+.cursor-dot {
+  position: fixed; top: 0; left: 0; width: 6px; height: 6px; background: var(--gold);
+  border-radius: 50%; pointer-events: none; z-index: 999999;
+  transform: translate(-100px, -100px); mix-blend-mode: screen;
+}
 .wa-float{
   width: 56px; height: 56px; background: #25D366; border-radius: 50%; border: none;
   display: flex; align-items: center; justify-content: center;
@@ -348,9 +433,8 @@ footer{background:#080602;padding:5rem 0 2rem;border-top:1px solid var(--border-
   .calc-top-row{flex-direction:column;gap:1rem !important}
   .calc-top-row > div{width:100%;text-align:left !important}
   .calc-top-row .calc-label{text-align:left !important}
-  .wa-widget { bottom: 20px; right: 20px; }
-  .wa-float { width: 50px; height: 50px; }
-  .wa-float svg { width: 26px; height: 26px; }
+  .mobile-cta-bar { display: flex; }
+  .wa-widget { display: none !important; }
 }
 /* CUSTOM SELECT UI */
 .custom-select-wrapper { position: relative; width: 100%; user-select: none; }
@@ -421,6 +505,16 @@ input[type=number] { -moz-appearance: textfield; }
 </head>
 <body>
 
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- PRELOADER -->
+<div id="sitePreloader">
+  <div class="preloader-content">
+    <img src="images/sbl-logo.png" alt="Simba Logo" class="preloader-icon">
+    <div class="preloader-text">NGUVU HALISI</div>
+  </div>
+</div>
+
 <!-- AGE GATE -->
 <div id="ageGate" class="age-gate-overlay">
   <div class="age-gate-modal">
@@ -434,7 +528,24 @@ input[type=number] { -moz-appearance: textfield; }
   </div>
 </div>
 
-<!-- NAV -->
+<!-- MOBILE CTA BAR -->
+<div class="mobile-cta-bar">
+  <a href="https://wa.me/255713822240" class="mobile-cta-wa" data-en="WhatsApp Us" data-sw="Tutumie WhatsApp">WhatsApp Us</a>
+  <a href="#wholesale" class="mobile-cta-quote" data-en="Get Quote" data-sw="Pata Bei">Get Quote</a>
+</div>
+
+<!-- EXIT INTENT POPUP -->
+<div id="exitIntentPopup" class="exit-overlay">
+  <div class="exit-modal">
+    <button class="exit-close" onclick="closeExitIntent()">×</button>
+    <div style="font-family:'Oswald',sans-serif; font-size:2rem; color:var(--gold); margin-bottom:1rem; line-height:1.2;" data-en="Before you go..." data-sw="Kabla hujaenda...">Before you go...</div>
+    <p style="color:var(--cream-muted); margin-bottom:1.5rem;" data-en="Get our exclusive wholesale price list sent instantly to your WhatsApp." data-sw="Pata orodha yetu ya bei ya jumla moja kwa moja kupitia WhatsApp.">Get our exclusive wholesale price list sent instantly to your WhatsApp.</p>
+    <a href="https://wa.me/255713822240?text=Hi%20Simba%20Beverages%2C%20I%20would%20like%20to%20get%20the%20wholesale%20price%20list." class="btn btn-primary" style="width:100%; text-align:center;" onclick="closeExitIntent()" data-en="Send to my WhatsApp" data-sw="Tuma WhatsApp Yangu">Send to my WhatsApp</a>
+  </div>
+</div>
+
+<script>
+// ── SCROLL NAV ──
 <nav id="mainNav">
   <a href="#home" class="nav-logo">
     <img class="logo-mark" src="images/sbl-logo.png" alt="Simba Beverages Limited Logo">
@@ -553,7 +664,7 @@ input[type=number] { -moz-appearance: textfield; }
     <div class="range-grid reveal">
       <div class="prod-card wine">
         <div class="prod-bottle-zone"><div class="prod-glow wine-glow"></div>
-          <img src="images/hero-bottle.png" alt="Nkolo Mboka" style="height: 160px; width: auto; object-fit: contain; position: relative; z-index: 2;">
+          <img src="images/hero-bottle.png" alt="Nkolo Mboka" loading="lazy" style="height: 160px; width: auto; object-fit: contain; position: relative; z-index: 2;">
         </div>
         <div class="prod-category">Traditional Wine</div><div class="prod-name">Nkolo Mboka</div>
         <div class="prod-desc">A premium traditional wine crafted with natural ingredients, offering a rich and authentic taste of African heritage.</div>
@@ -561,7 +672,7 @@ input[type=number] { -moz-appearance: textfield; }
       </div>
       <div class="prod-card kombu">
         <div class="prod-bottle-zone"><div class="prod-glow kombu-glow"></div>
-          <img src="images/bottle-kombu.png" alt="Ola Kombucha" style="height: 160px; width: auto; object-fit: contain; position: relative; z-index: 2;">
+          <img src="images/bottle-kombu.png" alt="Ola Kombucha" loading="lazy" style="height: 160px; width: auto; object-fit: contain; position: relative; z-index: 2;">
         </div>
         <div class="prod-category">Probiotic Tea <span style="background:var(--gold);color:#000;padding:2px 6px;border-radius:4px;font-size:0.7em;font-weight:700;margin-left:6px;vertical-align:text-bottom;">UPCOMING</span></div><div class="prod-name">Ola Kombucha</div>
         <div class="prod-desc">Naturally fermented sparkling kombucha tea packed with probiotics and organic nutrients to refresh and revitalize.</div>
@@ -569,7 +680,7 @@ input[type=number] { -moz-appearance: textfield; }
       </div>
       <div class="prod-card ginger">
         <div class="prod-bottle-zone"><div class="prod-glow ginger-glow"></div>
-          <img src="images/bottle-ginger.png" alt="Ginger Punch" style="height: 160px; width: auto; object-fit: contain; position: relative; z-index: 2;">
+          <img src="images/bottle-ginger.png" alt="Ginger Punch" loading="lazy" style="height: 160px; width: auto; object-fit: contain; position: relative; z-index: 2;">
         </div>
         <div class="prod-category">Spiced Beverage <span style="background:var(--gold);color:#000;padding:2px 6px;border-radius:4px;font-size:0.7em;font-weight:700;margin-left:6px;vertical-align:text-bottom;">UPCOMING</span></div><div class="prod-name">Ginger Punch</div>
         <div class="prod-desc">Zesty, fiery, and bold ginger beverage brewed from the finest local ginger root and natural spices.</div>
@@ -577,7 +688,7 @@ input[type=number] { -moz-appearance: textfield; }
       </div>
       <div class="prod-card energy">
         <div class="prod-bottle-zone"><div class="prod-glow energy-glow"></div>
-          <img src="images/bottle-energy.png" alt="Hard Rock" style="height: 160px; width: auto; object-fit: contain; position: relative; z-index: 2;">
+          <img src="images/bottle-energy.png" alt="Hard Rock" loading="lazy" style="height: 160px; width: auto; object-fit: contain; position: relative; z-index: 2;">
         </div>
         <div class="prod-category">Energy Drink <span style="background:var(--gold);color:#000;padding:2px 6px;border-radius:4px;font-size:0.7em;font-weight:700;margin-left:6px;vertical-align:text-bottom;">UPCOMING</span></div><div class="prod-name">Hard Rock</div>
         <div class="prod-desc">High-performance energy drink formulated to deliver sustained physical stamina and mental focus.</div>
@@ -752,6 +863,32 @@ input[type=number] { -moz-appearance: textfield; }
           <div class="form-success" id="formSuccess" data-en="✦ Sent! We'll be in touch within 24 hours." data-sw="✦ Imetumwa! Tutawasiliana na wewe ndani ya masaa 24.">✦ Sent! We'll be in touch within 24 hours.</div>
           <div class="form-error" id="formError" data-en="⚠ Please fill in all required fields before sending." data-sw="⚠ Tafadhali jaza sehemu zote zinazohitajika kabla ya kutuma.">⚠ Please fill in all required fields before sending.</div>
         </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STOCKISTS -->
+<section id="stockists" class="section" style="background:#080602;">
+  <div class="container">
+    <div class="section-label" data-en="Where to Buy" data-sw="Wapi kwa Kununua">Where to Buy</div>
+    <h2 class="section-title" style="margin-bottom:2rem;" data-en="Our Distributors" data-sw="Wasambazaji Wetu">Our Distributors</h2>
+    <div style="border: 1px solid var(--border-gold); border-radius: 12px; overflow: hidden; height: 400px; position: relative;">
+      <!-- REPLACE WITH REAL LOCATIONS: Embed Map -->
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126742.66814322426!2d39.18659223847775!3d-6.804961557025807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185c4babc051287d%3A0xc6222b467cbaf388!2sDar%20es%20Salaam%2C%20Tanzania!5e0!3m2!1sen!2sus!4v1714578193892!5m2!1sen!2sus" width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(90%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div style="margin-top:2rem; display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+      <div style="background:#140F0A; padding:1.5rem; border:1px solid var(--border-gold); border-radius:8px;">
+        <h4 style="color:var(--gold); font-family:'Oswald',sans-serif;">Kariakoo Wholesale</h4>
+        <p style="font-size:13px; color:var(--cream-dim);">Msimbazi Street, Dar es Salaam</p>
+      </div>
+      <div style="background:#140F0A; padding:1.5rem; border:1px solid var(--border-gold); border-radius:8px;">
+        <h4 style="color:var(--gold); font-family:'Oswald',sans-serif;">Mwenge Distributors</h4>
+        <p style="font-size:13px; color:var(--cream-dim);">Mwenge Station, Dar es Salaam</p>
+      </div>
+      <div style="background:#140F0A; padding:1.5rem; border:1px solid var(--border-gold); border-radius:8px;">
+        <h4 style="color:var(--gold); font-family:'Oswald',sans-serif;">Posta Mega Mart</h4>
+        <p style="font-size:13px; color:var(--cream-dim);">Samora Ave, Dar es Salaam</p>
       </div>
     </div>
   </div>
@@ -1106,6 +1243,7 @@ document.getElementById('contactForm').addEventListener('submit',async function(
 });
 
 function showSuccess(){
+  sessionStorage.setItem('sbl_form_submitted', 'true');
   document.getElementById('contactForm').reset();
   document.getElementById('quoteBanner').style.display='none';
   document.getElementById('enquiryBtn').classList.remove('quote-loaded');
@@ -1185,6 +1323,15 @@ function verifyAge(isAdult){
     window.location.href = 'https://www.google.com';
   }
 }
+
+// ── PRELOADER LOGIC ──
+function hidePreloader() {
+  const p = document.getElementById('sitePreloader');
+  if(p) p.classList.add('loaded');
+}
+window.addEventListener('load', hidePreloader);
+setTimeout(hidePreloader, 2000);
+
 // ── FAQ TOGGLE ──
 function toggleFaq(el){
   const item = el.parentElement;
@@ -1249,8 +1396,62 @@ document.addEventListener('keydown', (e) => {
     if (popover && popover.classList.contains('open')) {
       popover.classList.remove('open');
     }
+    closeExitIntent();
   }
 });
+
+// ── EXIT INTENT LOGIC ──
+let exitIntentTriggered = false;
+document.addEventListener('mouseleave', (e) => {
+  if (e.clientY < 0 && !exitIntentTriggered && !localStorage.getItem('sbl_exit_shown') && !sessionStorage.getItem('sbl_form_submitted')) {
+    document.getElementById('exitIntentPopup').classList.add('show');
+    exitIntentTriggered = true;
+    localStorage.setItem('sbl_exit_shown', 'true');
+  }
+});
+function closeExitIntent() {
+  const p = document.getElementById('exitIntentPopup');
+  if(p) p.classList.remove('show');
+}
+
+// ── VISUAL POLISH: SCROLL PROGRESS ──
+window.addEventListener('scroll', () => {
+  const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  const p = document.getElementById('scrollProgress');
+  if(p) p.style.width = scrolled + '%';
+});
+
+// ── VISUAL POLISH: CURSOR TRAIL ──
+if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+  const trailCount = 8;
+  const dots = [];
+  for (let i = 0; i < trailCount; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'cursor-dot';
+    document.body.appendChild(dot);
+    dots.push({ el: dot, x: 0, y: 0 });
+  }
+  let mouseX = 0, mouseY = 0;
+  window.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
+  function animateTrail() {
+    let x = mouseX, y = mouseY;
+    dots.forEach((dot, index) => {
+      const nextDot = dots[index + 1] || dots[0];
+      dot.x = x; dot.y = y;
+      dot.el.style.transform = `translate(${x}px, ${y}px) scale(${(trailCount - index) / trailCount})`;
+      x += (nextDot.x - x) * 0.5; y += (nextDot.y - y) * 0.5;
+    });
+    requestAnimationFrame(animateTrail);
+  }
+  animateTrail();
+}
+
+// ── PWA SERVICE WORKER ──
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
 </script>
 </body>
 </html>

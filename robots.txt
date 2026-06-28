@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nagulusyed.github.io/simba_beverages_limited_tanzania/sitemap.xml

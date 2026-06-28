@@ -1,0 +1,303 @@
+        <div class="bottle-float">
+          <svg width="200" height="540" viewBox="0 0 200 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <!-- Glass gradients -->
+              <linearGradient id="glassBody" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%"   stop-color="#0E2E12"/>
+                <stop offset="18%"  stop-color="#1A4A1E"/>
+                <stop offset="45%"  stop-color="#2D7035"/>
+                <stop offset="72%"  stop-color="#1A4A1E"/>
+                <stop offset="100%" stop-color="#0A1E0C"/>
+              </linearGradient>
+              <linearGradient id="glassNeck" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%"   stop-color="#0E2E12"/>
+                <stop offset="40%"  stop-color="#256B2B"/>
+                <stop offset="100%" stop-color="#0A1E0C"/>
+              </linearGradient>
+              <linearGradient id="capGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"   stop-color="#4A9050"/>
+                <stop offset="50%"  stop-color="#2D6E33"/>
+                <stop offset="100%" stop-color="#1A4A1E"/>
+              </linearGradient>
+              <!-- White label -->
+              <linearGradient id="labelBg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"   stop-color="#FFFFFF"/>
+                <stop offset="55%"  stop-color="#F5EFE6"/>
+                <stop offset="78%"  stop-color="#C8956A"/>
+                <stop offset="100%" stop-color="#8B3A12"/>
+              </linearGradient>
+              <!-- Crown gradient -->
+              <linearGradient id="crownGold" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"   stop-color="#FFE066"/>
+                <stop offset="50%"  stop-color="#F5A623"/>
+                <stop offset="100%" stop-color="#C8841A"/>
+              </linearGradient>
+              <!-- Lion face -->
+              <radialGradient id="lionFace" cx="50%" cy="45%" r="55%">
+                <stop offset="0%"   stop-color="#F5C842"/>
+                <stop offset="60%"  stop-color="#E8A020"/>
+                <stop offset="100%" stop-color="#B87018"/>
+              </radialGradient>
+              <!-- Lion mane -->
+              <radialGradient id="lionMane" cx="50%" cy="50%" r="50%">
+                <stop offset="0%"   stop-color="#C8841A"/>
+                <stop offset="100%" stop-color="#7A4A08"/>
+              </radialGradient>
+              <!-- Eye iris -->
+              <radialGradient id="eyeIris" cx="35%" cy="35%" r="65%">
+                <stop offset="0%"   stop-color="#D4940A"/>
+                <stop offset="100%" stop-color="#8B5A05"/>
+              </radialGradient>
+              <!-- Glass sheen -->
+              <linearGradient id="sheenLeft" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%"   stop-color="rgba(255,255,255,0.0)"/>
+                <stop offset="100%" stop-color="rgba(255,255,255,0.12)"/>
+              </linearGradient>
+              <linearGradient id="sheenRight" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%"   stop-color="rgba(255,255,255,0.12)"/>
+                <stop offset="100%" stop-color="rgba(255,255,255,0.0)"/>
+              </linearGradient>
+              <filter id="dropShadow">
+                <feDropShadow dx="4" dy="8" stdDeviation="8" flood-color="rgba(0,0,0,0.5)"/>
+              </filter>
+            </defs>
+
+            <!-- ═══ BOTTLE GLASS SHAPE ═══ -->
+            <!-- Base -->
+            <ellipse cx="100" cy="508" rx="52" ry="9" fill="#0A1A0C" opacity="0.7"/>
+            <!-- Body -->
+            <rect x="48" y="148" width="104" height="352" rx="6" fill="url(#glassBody)" filter="url(#dropShadow)"/>
+            <!-- Shoulder curve -->
+            <path d="M74 92 Q46 115 48 148 L152 148 Q154 115 126 92 Z" fill="url(#glassBody)"/>
+            <!-- Neck -->
+            <rect x="74" y="38" width="52" height="56" rx="3" fill="url(#glassNeck)"/>
+            <!-- Neck ring collar -->
+            <rect x="68" y="90" width="64" height="6" rx="2" fill="#1A4A1E"/>
+
+            <!-- ═══ CAP / FOIL ═══ -->
+            <rect x="72" y="8"  width="56" height="7"  rx="3" fill="#3A8040"/>
+            <rect x="68" y="15" width="64" height="24" rx="3" fill="url(#capGrad)"/>
+            <!-- Cap ridges -->
+            <rect x="68" y="19" width="64" height="2" rx="1" fill="rgba(255,255,255,0.18)"/>
+            <rect x="68" y="24" width="64" height="2" rx="1" fill="rgba(255,255,255,0.13)"/>
+            <rect x="68" y="29" width="64" height="2" rx="1" fill="rgba(255,255,255,0.09)"/>
+            <rect x="68" y="34" width="64" height="2" rx="1" fill="rgba(255,255,255,0.06)"/>
+            <!-- Foil crimp base -->
+            <rect x="66" y="37" width="68" height="5" rx="2" fill="#1A4A1E"/>
+
+            <!-- ═══ GLASS SHEEN STRIPS ═══ -->
+            <!-- Left highlight on neck -->
+            <rect x="74" y="38" width="10" height="56" rx="3" fill="rgba(255,255,255,0.10)"/>
+            <!-- Left highlight on body -->
+            <rect x="48" y="148" width="12" height="352" rx="3" fill="rgba(255,255,255,0.08)"/>
+            <!-- Right edge shadow -->
+            <rect x="142" y="148" width="10" height="352" rx="3" fill="rgba(0,0,0,0.18)"/>
+
+            <!-- ═══ LABEL ═══ -->
+            <rect x="52" y="165" width="96" height="300" rx="4" fill="url(#labelBg)"/>
+
+            <!-- ── CROWN (top of label) ── -->
+            <!-- Crown base band -->
+            <rect x="52" y="215" width="96" height="10" fill="url(#crownGold)"/>
+            <!-- Crown points -->
+            <path d="
+              M52 215
+              L59 198 L66 210
+              L74 193 L82 208
+              L100 190 L118 208
+              L126 193 L134 210
+              L141 198 L148 215
+              Z" fill="url(#crownGold)" stroke="#C8841A" stroke-width="0.5"/>
+            <!-- Crown jewels -->
+            <circle cx="100" cy="196" r="4.5" fill="#CC2020"/>
+            <circle cx="100" cy="196" r="2.5" fill="#FF4444" opacity="0.7"/>
+            <circle cx="81"  cy="202" r="3"   fill="#1A44AA"/>
+            <circle cx="119" cy="202" r="3"   fill="#1A44AA"/>
+            <!-- Crown outline accent -->
+            <path d="M52 215 L59 198 L66 210 L74 193 L82 208 L100 190 L118 208 L126 193 L134 210 L141 198 L148 215"
+                  stroke="#A06010" stroke-width="0.8" fill="none"/>
+
+            <!-- ── DECORATIVE GOLD BORDER LINE ── -->
+            <rect x="52" y="224" width="96" height="1.5" fill="#C8841A" opacity="0.8"/>
+
+            <!-- ════════════ LION HEAD ════════════ -->
+            <!-- cx=100, cy=295 — centre of lion -->
+
+            <!-- Outer mane ring (dark halo) -->
+            <circle cx="100" cy="293" r="52" fill="#5A3005" opacity="0.35"/>
+
+            <!-- Mane — radiating strokes outward from face -->
+            <!-- Top strokes -->
+            <ellipse cx="100" cy="248" rx="6"  ry="14" fill="#7A4808" opacity="0.9" transform="rotate(0   100 293)"/>
+            <ellipse cx="100" cy="248" rx="5"  ry="12" fill="#9A6010" opacity="0.8" transform="rotate(20  100 293)"/>
+            <ellipse cx="100" cy="248" rx="5"  ry="12" fill="#9A6010" opacity="0.8" transform="rotate(-20 100 293)"/>
+            <ellipse cx="100" cy="248" rx="4"  ry="11" fill="#7A4808" opacity="0.7" transform="rotate(40  100 293)"/>
+            <ellipse cx="100" cy="248" rx="4"  ry="11" fill="#7A4808" opacity="0.7" transform="rotate(-40 100 293)"/>
+            <ellipse cx="100" cy="248" rx="4"  ry="10" fill="#6A3A06" opacity="0.65" transform="rotate(60  100 293)"/>
+            <ellipse cx="100" cy="248" rx="4"  ry="10" fill="#6A3A06" opacity="0.65" transform="rotate(-60 100 293)"/>
+            <ellipse cx="100" cy="248" rx="3.5" ry="9" fill="#5A3005" opacity="0.6"  transform="rotate(80  100 293)"/>
+            <ellipse cx="100" cy="248" rx="3.5" ry="9" fill="#5A3005" opacity="0.6"  transform="rotate(-80 100 293)"/>
+            <ellipse cx="100" cy="248" rx="3"  ry="8"  fill="#5A3005" opacity="0.55" transform="rotate(100 100 293)"/>
+            <ellipse cx="100" cy="248" rx="3"  ry="8"  fill="#5A3005" opacity="0.55" transform="rotate(-100 100 293)"/>
+            <ellipse cx="100" cy="248" rx="3"  ry="8"  fill="#5A3005" opacity="0.5"  transform="rotate(120 100 293)"/>
+            <ellipse cx="100" cy="248" rx="3"  ry="8"  fill="#5A3005" opacity="0.5"  transform="rotate(-120 100 293)"/>
+            <ellipse cx="100" cy="248" rx="3"  ry="7"  fill="#4A2804" opacity="0.45" transform="rotate(140 100 293)"/>
+            <ellipse cx="100" cy="248" rx="3"  ry="7"  fill="#4A2804" opacity="0.45" transform="rotate(-140 100 293)"/>
+            <ellipse cx="100" cy="248" rx="3"  ry="7"  fill="#4A2804" opacity="0.4"  transform="rotate(160 100 293)"/>
+            <ellipse cx="100" cy="248" rx="3"  ry="7"  fill="#4A2804" opacity="0.4"  transform="rotate(-160 100 293)"/>
+
+            <!-- Mane inner fill -->
+            <circle cx="100" cy="293" r="40" fill="#8B5A08" opacity="0.55"/>
+            <circle cx="100" cy="293" r="36" fill="#A87018" opacity="0.45"/>
+
+            <!-- ── FACE BASE ── -->
+            <circle cx="100" cy="291" r="32" fill="url(#lionFace)"/>
+
+            <!-- ── EARS ── -->
+            <!-- Left ear -->
+            <path d="M70 270 Q62 254 72 250 Q80 254 78 266 Z" fill="#D09020"/>
+            <path d="M71 269 Q64 256 73 253 Q79 256 77 265 Z" fill="#B87818"/>
+            <path d="M72 268 Q66 258 74 255 Q78 258 76 265 Z" fill="#C06A18" opacity="0.6"/>
+            <!-- Right ear -->
+            <path d="M130 270 Q138 254 128 250 Q120 254 122 266 Z" fill="#D09020"/>
+            <path d="M129 269 Q136 256 127 253 Q121 256 123 265 Z" fill="#B87818"/>
+            <path d="M128 268 Q134 258 126 255 Q122 258 124 265 Z" fill="#C06A18" opacity="0.6"/>
+
+            <!-- ── FOREHEAD BROW RIDGE ── -->
+            <path d="M82 270 Q100 264 118 270" stroke="#8B5A08" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7"/>
+            <!-- Brow shadow -->
+            <path d="M84 272 Q100 267 116 272" stroke="#6A3A05" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5"/>
+
+            <!-- ── EYES ── -->
+            <!-- Left eye socket shadow -->
+            <ellipse cx="87" cy="284" rx="9"  ry="7.5" fill="#5A3005" opacity="0.4"/>
+            <!-- Left eye white/sclera area -->
+            <ellipse cx="87" cy="283" rx="8.5" ry="7" fill="#D4940A"/>
+            <!-- Left iris -->
+            <ellipse cx="87" cy="283" rx="7"  ry="6" fill="url(#eyeIris)"/>
+            <!-- Left pupil -->
+            <ellipse cx="87" cy="284" rx="3.5" ry="5" fill="#1A0A02"/>
+            <!-- Left eye shine -->
+            <circle cx="84" cy="280" r="2" fill="rgba(255,255,255,0.75)"/>
+            <circle cx="90" cy="287" r="1" fill="rgba(255,255,255,0.3)"/>
+            <!-- Left eye outline -->
+            <ellipse cx="87" cy="283" rx="8.5" ry="7" fill="none" stroke="#6A3A05" stroke-width="1"/>
+
+            <!-- Right eye socket shadow -->
+            <ellipse cx="113" cy="284" rx="9"   ry="7.5" fill="#5A3005" opacity="0.4"/>
+            <!-- Right eye -->
+            <ellipse cx="113" cy="283" rx="8.5" ry="7" fill="#D4940A"/>
+            <ellipse cx="113" cy="283" rx="7"   ry="6" fill="url(#eyeIris)"/>
+            <ellipse cx="113" cy="284" rx="3.5" ry="5" fill="#1A0A02"/>
+            <circle cx="110" cy="280" r="2" fill="rgba(255,255,255,0.75)"/>
+            <circle cx="116" cy="287" r="1" fill="rgba(255,255,255,0.3)"/>
+            <ellipse cx="113" cy="283" rx="8.5" ry="7" fill="none" stroke="#6A3A05" stroke-width="1"/>
+
+            <!-- ── NOSE ── -->
+            <!-- Nose bridge -->
+            <path d="M96 284 Q100 288 104 284" stroke="#8B5A08" stroke-width="1.5" fill="none" opacity="0.6"/>
+            <!-- Nose main shape -->
+            <path d="M91 296 Q100 291 109 296 Q106 305 100 307 Q94 305 91 296 Z" fill="#7A3A08"/>
+            <path d="M92 297 Q100 293 108 297 Q105 303 100 305 Q95 303 92 297 Z" fill="#9A4A10"/>
+            <!-- Nostril detail -->
+            <ellipse cx="94"  cy="300" rx="3" ry="2.5" fill="#5A2805" opacity="0.8"/>
+            <ellipse cx="106" cy="300" rx="3" ry="2.5" fill="#5A2805" opacity="0.8"/>
+
+            <!-- ── MOUTH / MUZZLE ── -->
+            <!-- Muzzle base -->
+            <ellipse cx="100" cy="308" rx="14" ry="9" fill="#D8A855" opacity="0.35"/>
+            <!-- Philtrum line -->
+            <line x1="100" y1="307" x2="100" y2="314" stroke="#7A3A08" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Upper lip arch -->
+            <path d="M88 312 Q94 308 100 310 Q106 308 112 312" stroke="#6A2A05" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <!-- Lower lip / mouth line -->
+            <path d="M90 315 Q100 322 110 315" stroke="#6A2A05" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <!-- Slight snarl corner -->
+            <path d="M88 312 Q86 315 88 318" stroke="#6A2A05" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <path d="M112 312 Q114 315 112 318" stroke="#6A2A05" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+            <!-- ── CHIN FUR ── -->
+            <path d="M90 320 Q100 328 110 320" stroke="#C8841A" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+            <path d="M93 323 Q100 330 107 323" stroke="#C8841A" stroke-width="1"   fill="none" stroke-linecap="round" opacity="0.4"/>
+
+            <!-- ── WHISKER DOTS ── -->
+            <circle cx="78"  cy="305" r="1.5" fill="#6A3A05" opacity="0.7"/>
+            <circle cx="75"  cy="309" r="1.5" fill="#6A3A05" opacity="0.7"/>
+            <circle cx="78"  cy="313" r="1.5" fill="#6A3A05" opacity="0.6"/>
+            <circle cx="122" cy="305" r="1.5" fill="#6A3A05" opacity="0.7"/>
+            <circle cx="125" cy="309" r="1.5" fill="#6A3A05" opacity="0.7"/>
+            <circle cx="122" cy="313" r="1.5" fill="#6A3A05" opacity="0.6"/>
+
+            <!-- ── WHISKER LINES ── -->
+            <line x1="60"  y1="303" x2="84"  y2="307" stroke="#C8A058" stroke-width="0.8" opacity="0.55" stroke-linecap="round"/>
+            <line x1="58"  y1="309" x2="83"  y2="310" stroke="#C8A058" stroke-width="0.8" opacity="0.55" stroke-linecap="round"/>
+            <line x1="60"  y1="315" x2="84"  y2="313" stroke="#C8A058" stroke-width="0.8" opacity="0.45" stroke-linecap="round"/>
+            <line x1="140" y1="303" x2="116" y2="307" stroke="#C8A058" stroke-width="0.8" opacity="0.55" stroke-linecap="round"/>
+            <line x1="142" y1="309" x2="117" y2="310" stroke="#C8A058" stroke-width="0.8" opacity="0.55" stroke-linecap="round"/>
+            <line x1="140" y1="315" x2="116" y2="313" stroke="#C8A058" stroke-width="0.8" opacity="0.45" stroke-linecap="round"/>
+
+            <!-- ── FOREHEAD FUR LINES ── -->
+            <line x1="95"  y1="263" x2="94"  y2="272" stroke="#8B5A08" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+            <line x1="100" y1="261" x2="100" y2="271" stroke="#8B5A08" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+            <line x1="105" y1="263" x2="106" y2="272" stroke="#8B5A08" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+
+            <!-- ════════════ END LION ════════════ -->
+
+            <!-- ── VIN TEXT ── -->
+            <text x="100" y="346" text-anchor="middle"
+                  font-family="Georgia,serif" font-size="9" font-weight="400"
+                  fill="#888888" letter-spacing="6">VIN</text>
+
+            <!-- ── RED SEPARATOR LINE ── -->
+            <rect x="52" y="350" width="96" height="3" fill="#8B1A1A"/>
+
+            <!-- ── NKOLOMOKA ── -->
+            <text x="100" y="375" text-anchor="middle"
+                  font-family="Arial Black,Impact,sans-serif" font-size="15.5"
+                  font-weight="900" fill="#1A0A04" letter-spacing="0.3">NKOLOMOKA</text>
+
+            <!-- ── THIN GOLD RULE ── -->
+            <rect x="60" y="380" width="80" height="1" fill="#C8841A" opacity="0.6"/>
+
+            <!-- ── PRODUCT SUBTITLE ── -->
+            <text x="100" y="392" text-anchor="middle"
+                  font-family="Arial,sans-serif" font-size="7" fill="#666666">
+              Ginger-based Alcoholic Beverage
+            </text>
+
+            <!-- ── DECORATIVE ZIGZAG BAND ── -->
+            <path d="M52 400 L57 394 L62 400 L67 394 L72 400 L77 394 L82 400 L87 394 L92 400 L97 394 L102 400 L107 394 L112 400 L117 394 L122 400 L127 394 L132 400 L137 394 L142 400 L147 394 L148 400"
+                  stroke="#C8841A" stroke-width="0.7" fill="none" opacity="0.4"/>
+
+            <!-- ── TAGLINE BOTTOM RED BAND ── -->
+            <rect x="52" y="448" width="96" height="17" rx="0" fill="#8B1A1A"/>
+            <rect x="52" y="448" width="96" height="3"  fill="#AA2020"/>
+            <text x="100" y="461" text-anchor="middle"
+                  font-family="Arial,sans-serif" font-size="5.5" font-weight="700"
+                  fill="rgba(253,246,233,0.9)" letter-spacing="0.5">
+              NGUVU YA SIMBA, FAHARI YA TANZANIA
+            </text>
+
+            <!-- ── CONDENSATION DROPS ON LABEL ── -->
+            <!-- Small drops scattered on white label area -->
+            <ellipse cx="60"  cy="250" rx="1.5" ry="3"   fill="rgba(200,220,255,0.5)"/>
+            <ellipse cx="64"  cy="270" rx="1"   ry="2.5" fill="rgba(200,220,255,0.45)"/>
+            <ellipse cx="58"  cy="290" rx="1.5" ry="3.5" fill="rgba(200,220,255,0.5)"/>
+            <ellipse cx="62"  cy="312" rx="1"   ry="2.5" fill="rgba(200,220,255,0.4)"/>
+            <ellipse cx="57"  cy="330" rx="1.5" ry="3"   fill="rgba(200,220,255,0.45)"/>
+            <ellipse cx="140" cy="255" rx="1.5" ry="3"   fill="rgba(200,220,255,0.5)"/>
+            <ellipse cx="143" cy="278" rx="1"   ry="2.5" fill="rgba(200,220,255,0.4)"/>
+            <ellipse cx="139" cy="300" rx="1.5" ry="3.5" fill="rgba(200,220,255,0.5)"/>
+            <ellipse cx="142" cy="320" rx="1"   ry="2.5" fill="rgba(200,220,255,0.4)"/>
+            <ellipse cx="138" cy="340" rx="1.5" ry="3"   fill="rgba(200,220,255,0.45)"/>
+            <!-- Drop trails -->
+            <path d="M60 253 Q59 258 60 263"  stroke="rgba(200,220,255,0.25)" stroke-width="0.8" fill="none"/>
+            <path d="M58 293 Q57 299 58 305"  stroke="rgba(200,220,255,0.25)" stroke-width="0.8" fill="none"/>
+            <path d="M140 258 Q141 264 140 270" stroke="rgba(200,220,255,0.25)" stroke-width="0.8" fill="none"/>
+            <path d="M139 303 Q140 310 139 316" stroke="rgba(200,220,255,0.25)" stroke-width="0.8" fill="none"/>
+
+            <!-- ── BOTTLE BASE / PUNT ── -->
+            <path d="M48 498 Q48 514 60 516 L140 516 Q152 514 152 498 L152 495 L48 495 Z" fill="#0A1A0C"/>
+            <ellipse cx="100" cy="495" rx="34" ry="7" fill="#122E14" opacity="0.8"/>
+          </svg>
+        </div>
