@@ -505,7 +505,7 @@ input[type=number] { -moz-appearance: textfield; }
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
               <label class="calc-label" style="margin:0" for="quantitySlider">Order Quantity</label>
               <div style="display:flex;align-items:center;gap:6px;">
-                <input type="number" id="quantityInput" value="10" min="1" max="10000" style="background:rgba(13,10,6,.7); border:1px solid var(--border-gold); color:var(--gold); font-family:'Oswald',sans-serif; font-size:1.1rem; padding:2px 8px; width:80px; text-align:center; border-radius:4px; outline:none;">
+                <input type="number" id="quantityInput" value="10" min="10" max="10000" style="background:rgba(13,10,6,.7); border:1px solid var(--border-gold); color:var(--gold); font-family:'Oswald',sans-serif; font-size:1.1rem; padding:2px 8px; width:80px; text-align:center; border-radius:4px; outline:none;">
                 <span style="font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:700;color:var(--gold)">cases</span>
               </div>
             </div>
@@ -690,7 +690,7 @@ let quoteData=null;
 function updateCalc(e){
   let qty=parseInt(document.getElementById('quantitySlider').value,10);
   if(e && e.target.id === 'quantityInput') {
-    qty = parseInt(document.getElementById('quantityInput').value, 10) || 1;
+    qty = parseInt(document.getElementById('quantityInput').value, 10) || 10;
     document.getElementById('quantitySlider').value = qty;
   } else {
     document.getElementById('quantityInput').value = qty;
