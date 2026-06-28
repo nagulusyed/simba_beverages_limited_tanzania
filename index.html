@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Simba Beverages Limited — Tanzania | Nguvu Ya Simba, Fahari Ya Tanzania</title>
 <meta name="description" content="Simba Beverages Limited Tanzania — makers of Vin Nkolo Mboka, a premium ginger-based alcoholic beverage.">
+<!-- OpenGraph / Social Media SEO Tags -->
+<meta property="og:title" content="Simba Beverages Limited | Nguvu Ya Simba, Fahari Ya Tanzania">
+<meta property="og:description" content="Makers of Vin Nkolo Mboka and a range of premium Tanzanian beverages. Crafted for every taste, every occasion.">
+<meta property="og:image" content="https://nagulusyed.github.io/simba_beverages_limited_tanzania/images/hero-bottle.png">
+<meta property="og:url" content="https://nagulusyed.github.io/simba_beverages_limited_tanzania/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
 <style>
@@ -256,9 +263,43 @@ footer{background:#080602;padding:5rem 0 2rem;border-top:1px solid var(--border-
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
 input[type=number] { -moz-appearance: textfield; }
+
+/* ── AGE GATE ── */
+.age-gate-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(13,10,6,0.98); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  z-index: 99999; display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.age-gate-modal {
+  background: linear-gradient(160deg, #1A0F02 0%, #0D0A06 100%);
+  border: 1px solid var(--border-gold); border-radius: 12px;
+  padding: 3.5rem 2rem; max-width: 440px; width: 90%; text-align: center;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 40px rgba(245,166,35,0.1);
+  transform: translateY(0); transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.age-gate-overlay.hidden {
+  opacity: 0; visibility: hidden; pointer-events: none;
+}
+.age-gate-overlay.hidden .age-gate-modal {
+  transform: translateY(30px) scale(0.95);
+}
 </style>
 </head>
 <body>
+
+<!-- AGE GATE -->
+<div id="ageGate" class="age-gate-overlay">
+  <div class="age-gate-modal">
+    <img src="images/lion-bg.svg" alt="Simba Logo" style="width:80px; height:80px; margin:0 auto 1.5rem; display:block; filter: drop-shadow(0 0 15px rgba(245,166,35,0.6));">
+    <h2 style="font-family:'Oswald',sans-serif;font-size:2.2rem;color:var(--gold);text-transform:uppercase;margin-bottom:1rem;line-height:1.2;">Are you of legal drinking age?</h2>
+    <p style="font-size:14px;color:var(--cream-dim);margin-bottom:2.5rem;padding:0 1rem;">You must be 18 years of age or older to enter this site. Please verify your age.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;">
+      <button onclick="verifyAge(true)" class="btn" style="background:var(--gold);color:var(--black);border:none;flex:1;cursor:pointer;">YES, I AM 18+</button>
+      <button onclick="verifyAge(false)" class="btn btn-dark" style="flex:1;cursor:pointer;">NO, I AM NOT</button>
+    </div>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav id="mainNav">
@@ -882,6 +923,26 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.custom-select-wrapper').forEach(w => w.classList.remove('open'));
   });
 });
+// ── AGE GATE LOGIC ──
+function initAgeGate(){
+  if(!localStorage.getItem('sbl_age_verified')){
+    document.body.style.overflow = 'hidden';
+    document.getElementById('ageGate').classList.remove('hidden');
+  } else {
+    document.getElementById('ageGate').classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+}
+function verifyAge(isAdult){
+  if(isAdult){
+    localStorage.setItem('sbl_age_verified','true');
+    document.getElementById('ageGate').classList.add('hidden');
+    document.body.style.overflow = '';
+  } else {
+    window.location.href = 'https://www.google.com';
+  }
+}
+initAgeGate();
 </script>
 </body>
 </html>
