@@ -213,6 +213,9 @@ footer{background:#080602;padding:5rem 0 2rem;border-top:1px solid var(--border-
   .form-row-2,.send-btns,.tier-badges{grid-template-columns:1fr}
   .tier-badges{gap:0.75rem}
   .calc-card{padding:1.5rem}
+  .calc-top-row{flex-direction:column;gap:1rem !important}
+  .calc-top-row > div{width:100%;text-align:left !important}
+  .calc-top-row .calc-label{text-align:left !important}
 }
 /* CUSTOM SELECT UI */
 .custom-select-wrapper { position: relative; width: 100%; user-select: none; }
@@ -471,7 +474,7 @@ footer{background:#080602;padding:5rem 0 2rem;border-top:1px solid var(--border-
       </div>
       <div class="reveal">
         <div class="calc-card">
-          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1.5rem;margin-bottom:1.75rem">
+          <div class="calc-top-row" style="display:flex;align-items:flex-start;justify-content:space-between;gap:1.5rem;margin-bottom:1.75rem">
             <div style="flex:1">
               <label class="calc-label" for="productSelect">Select Product</label>
               <select id="productSelect" class="calc-select">
