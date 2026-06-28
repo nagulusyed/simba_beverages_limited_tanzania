@@ -101,6 +101,8 @@ nav.scrolled{background:rgba(13,10,6,0.98)}
 .prod-card.ginger{background:linear-gradient(160deg,#1A2010 0%,#0F1A08 100%)}
 .prod-card.energy{background:linear-gradient(160deg,#120A2A 0%,#0A051A 100%)}
 .prod-bottle-zone{height:180px;display:flex;align-items:flex-end;justify-content:center;margin-bottom:1.5rem;position:relative}
+.prod-bottle-zone::before{content:'';position:absolute;top:50%;left:50%;width:150px;height:150px;transform:translate(-50%,-50%) scale(0.8);background:url('images/lion-bg.svg') no-repeat center;background-size:contain;opacity:0;transition:transform .5s cubic-bezier(0.2,0.8,0.2,1),opacity .5s ease;z-index:1;pointer-events:none}
+.prod-card:hover .prod-bottle-zone::before{opacity:0.1;transform:translate(-50%,-50%) scale(1.05)}
 .prod-glow{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);width:120px;height:50px;border-radius:50%;filter:blur(18px);opacity:.55}
 .prod-glow.wine-glow{background:#3DAA6A}.prod-glow.kombu-glow{background:#C8841A}
 .prod-glow.ginger-glow{background:#8AAA3D}.prod-glow.energy-glow{background:#7B3DAA}
@@ -463,14 +465,14 @@ input[type=number] { -moz-appearance: textfield; }
     <div class="pricing-grid">
       <div class="reveal">
         <div class="badge-pill">B2B Wholesale</div>
-        <h2 class="section-title" style="font-size:clamp(1.8rem,8vw,4rem)"><span>Interactive</span><br><span class="italic accent">Pricing</span><br><span>Calculator</span></h2>
-        <p class="section-desc">Simba Beverages Limited supports wholesalers, distributors, and bulk retail accounts across Tanzania. Estimate your order costs and volume discounts in real-time.</p>
+        <h2 class="section-title" style="font-size:clamp(1.8rem,8vw,4rem)"><span>Interactive</span><br><span class="italic accent">Order</span><br><span>Calculator</span></h2>
+        <p class="section-desc">Simba Beverages Limited supports wholesalers, distributors, and bulk retail accounts across Tanzania. Estimate your order volume and free cases in real-time.</p>
         <div class="tier-badges" style="grid-template-columns:1fr">
           <div class="tier-badge active" style="padding:1.5rem;text-align:center"><span class="tier-pct" style="font-size:2rem;color:var(--gold);">+7 FREE CASES</span><div class="tier-range" style="font-size:1.1rem;margin-top:.5rem">For every 100 cases ordered</div></div>
         </div>
         <div style="margin-top:1.75rem;padding:1.25rem 1.5rem;border:1px solid var(--border-gold);background:rgba(245,166,35,.04)">
           <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.5rem">Note</div>
-          <p style="font-size:13px;color:var(--cream-muted);line-height:1.75">Prices shown are in TZS (Tanzanian Shillings). 1 Case = 12 pieces. Minimum order: 10 cases.</p>
+          <p style="font-size:13px;color:var(--cream-muted);line-height:1.75">1 Case = 12 pieces. Minimum order: 10 cases.</p>
         </div>
       </div>
       <div class="reveal">
@@ -481,10 +483,6 @@ input[type=number] { -moz-appearance: textfield; }
               <select id="productSelect" class="calc-select">
                 <option value="nkolomoka_330" selected>Vin Nkolo Mboka 330ml</option>
               </select>
-            </div>
-            <div style="text-align:right;flex-shrink:0">
-              <span class="calc-label" style="text-align:right;display:block">Base Price / Case (12 pcs)</span>
-              <span id="basePrice" style="font-family:'Oswald',sans-serif;font-size:1.8rem;font-weight:700;color:var(--gold);line-height:1;display:block">Tsh 16,000</span>
             </div>
           </div>
           <div style="margin-bottom:1.75rem">
@@ -498,14 +496,8 @@ input[type=number] { -moz-appearance: textfield; }
             <input type="range" id="quantitySlider" min="10" max="2000" value="10" step="10">
           </div>
           <div class="calc-results-box">
-            <div class="result-grid">
-              <div><span class="result-lbl">Effective Unit Price</span><span class="result-val" id="unitPrice">Tsh 16,000</span></div>
-              <div><span class="result-lbl">Free Cases</span><span class="result-val gold" id="freeCasesVal">0</span></div>
-              <div><span class="result-lbl">Total Savings Value</span><span class="result-val" id="totalSavings">Tsh 0</span></div>
-            </div>
-            <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(245,166,35,.15)">
-              <span class="result-lbl">Estimated Grand Total</span>
-              <span id="grandTotal" style="font-family:'Oswald',sans-serif;font-size:2.6rem;font-weight:700;color:var(--gold);line-height:1;display:block">Tsh 145.00</span>
+            <div class="result-grid" style="grid-template-columns:1fr; gap:0;">
+              <div style="text-align:center;"><span class="result-lbl">Free Cases Added To Order</span><span class="result-val gold" id="freeCasesVal" style="font-size:2.6rem;">0</span></div>
             </div>
           </div>
           <!-- CREATE ENQUIRY — scrolls to form + pre-fills message -->
@@ -691,21 +683,13 @@ function updateCalc(e){
   const prod=PRODUCTS[document.getElementById('productSelect').value];
   
   const freeCases = Math.floor(qty / 100) * 7;
-  const total = qty * prod.basePrice;
-  const savings = freeCases * prod.basePrice;
-  const effectiveUnitPrice = total / (qty + freeCases);
-
   const sel=document.getElementById('productSelect');
   const pname=sel.options[sel.selectedIndex].text;
 
-  document.getElementById('basePrice').textContent='Tsh '+prod.basePrice.toLocaleString();
-  document.getElementById('unitPrice').textContent='Tsh '+Math.round(effectiveUnitPrice).toLocaleString();
   document.getElementById('freeCasesVal').textContent=freeCases > 0 ? '+'+freeCases : '0';
-  document.getElementById('totalSavings').textContent='Tsh '+savings.toLocaleString();
-  document.getElementById('grandTotal').textContent='Tsh '+total.toLocaleString();
 
   // Store for form use
-  quoteData={pname,qty,total,freeCases};
+  quoteData={pname,qty,freeCases};
 }
 document.getElementById('quantitySlider').addEventListener('input',updateCalc);
 document.getElementById('quantityInput').addEventListener('input',updateCalc);
@@ -715,8 +699,8 @@ updateCalc();
 // ── CREATE ENQUIRY: scroll to form + pre-fill message
 function createEnquiry(){
   if(!quoteData)return;
-  const {pname,qty,total,freeCases}=quoteData;
-  const msg=`I'd like to enquire about: ${pname} × ${qty} cases. Estimated total: Tsh ${total.toLocaleString()}${freeCases>0?' (Includes '+freeCases+' FREE cases!)':''}`;
+  const {pname,qty,freeCases}=quoteData;
+  const msg=`I'd like to enquire about: ${pname} × ${qty} cases.${freeCases>0?' (Includes '+freeCases+' FREE cases!)':''}`;
 
   // Fill message field
   document.getElementById('fMessage').value=msg;
@@ -724,7 +708,7 @@ function createEnquiry(){
   // Show quote banner
   const banner=document.getElementById('quoteBanner');
   document.getElementById('quoteBannerText').textContent=
-    pname+' × '+qty+' cases — Est. total Tsh '+total.toLocaleString()+(freeCases>0?' (+' + freeCases + ' FREE cases)':'');
+    pname+' × '+qty+' cases'+(freeCases>0?' (+' + freeCases + ' FREE cases)':'');
   banner.style.display='block';
 
   // Highlight the enquiry button briefly
