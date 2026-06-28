@@ -12,6 +12,54 @@
 <meta property="og:url" content="https://nagulusyed.github.io/simba_beverages_limited_tanzania/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://nagulusyed.github.io/simba_beverages_limited_tanzania/#organization",
+      "name": "Simba Beverages Limited Tanzania",
+      "url": "https://nagulusyed.github.io/simba_beverages_limited_tanzania/",
+      "logo": "https://nagulusyed.github.io/simba_beverages_limited_tanzania/images/sbl-logo.png",
+      "sameAs": [
+        "https://www.instagram.com/nkolombokavin"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+255-713-822-240",
+        "contactType": "customer service",
+        "areaServed": "TZ",
+        "availableLanguage": ["English", "Swahili"]
+      }
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://nagulusyed.github.io/simba_beverages_limited_tanzania/#localbusiness",
+      "name": "Simba Beverages Limited",
+      "image": "https://nagulusyed.github.io/simba_beverages_limited_tanzania/images/sbl-logo.png",
+      "telephone": "+255 713822240",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Plot 1204, Industrial Area",
+        "addressLocality": "Dar es Salaam",
+        "addressCountry": "TZ"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Vin Nkolo Mboka",
+      "image": "https://nagulusyed.github.io/simba_beverages_limited_tanzania/images/hero-bottle.png",
+      "description": "A premium ginger-based alcoholic beverage crafted in Tanzania.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Simba Beverages"
+      }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
 <style>
@@ -206,6 +254,29 @@ footer{background:#080602;padding:5rem 0 2rem;border-top:1px solid var(--border-
 .wa-float{position:fixed;bottom:28px;right:28px;z-index:999;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);text-decoration:none;transition:transform .2s,box-shadow .2s}
 .wa-float:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(37,211,102,.55)}
 .wa-float svg{width:30px;height:30px;fill:white}
+/* ── TESTIMONIALS ── */
+.testimonials-section { padding: 5rem 0 3rem; background: var(--black); }
+.testimonials-header { text-align: center; margin-bottom: 3rem; }
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.testimonial-card { background: linear-gradient(180deg, #1A0F02 0%, #0D0A06 100%); border: 1px solid var(--border-gold); padding: 2rem; border-radius: 8px; position: relative; }
+.testimonial-quote { font-size: 1rem; font-style: italic; color: var(--cream); line-height: 1.6; margin-bottom: 1.5rem; position: relative; z-index: 2; }
+.testimonial-card::before { content: '"'; font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--gold); position: absolute; top: 1rem; left: 1.25rem; opacity: 0.15; z-index: 1; line-height: 1; }
+.testimonial-author { font-family: 'Oswald', sans-serif; font-size: 1.1rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+.testimonial-role { font-size: 0.8rem; color: var(--cream-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+/* ── FAQ ── */
+.faq-section { padding: 4rem 0 6rem; background: var(--black); border-top: 1px solid rgba(255,255,255,0.05); }
+.faq-grid { max-width: 800px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--border-gold); }
+.faq-question { padding: 1.5rem 0; font-family: 'Oswald', sans-serif; font-size: 1.2rem; color: var(--gold); cursor: pointer; display: flex; justify-content: space-between; align-items: center; letter-spacing: 0.05em; transition: color 0.3s; }
+.faq-question:hover { color: var(--gold-light); }
+.faq-icon { font-size: 1.5rem; font-weight: 300; transition: transform 0.3s; }
+.faq-item.active .faq-icon { transform: rotate(45deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; color: var(--cream-muted); font-size: 0.95rem; line-height: 1.7; }
+.faq-item.active .faq-answer { max-height: 300px; padding-bottom: 1.5rem; }
+/* ── LANG TOGGLE ── */
+.lang-toggle { display: flex; align-items: center; gap: 4px; margin-left: 2rem; background: rgba(245,166,35,0.1); padding: 4px; border-radius: 20px; border: 1px solid var(--border-gold); }
+.lang-btn { background: transparent; border: none; color: var(--cream-muted); font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; padding: 4px 12px; border-radius: 16px; cursor: pointer; transition: all 0.2s; }
+.lang-btn.active { background: var(--gold); color: var(--black); }
 @media(max-width:1024px){nav{padding:1rem 2rem}.container{padding:0 2rem}.footer-grid{grid-template-columns:1fr 1fr;gap:2rem}.range-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:768px){
   .nav-links{display:none;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:rgba(8,6,2,.95);backdrop-filter:blur(10px);padding:2rem;border-bottom:1px solid rgba(245,166,35,.15)}
@@ -313,11 +384,15 @@ input[type=number] { -moz-appearance: textfield; }
     </div>
   </a>
   <ul class="nav-links">
-    <li><a href="#home">Home</a></li><li><a href="#product">Flagship</a></li>
-    <li><a href="#range">Products</a></li><li><a href="#heritage">Heritage</a></li>
-    <li><a href="#wholesale">Wholesale</a></li><li><a href="#contact">Contact</a></li>
+    <li><a href="#home" data-en="Home" data-sw="Mwanzo">Home</a></li><li><a href="#product" data-en="Flagship" data-sw="Kivutio">Flagship</a></li>
+    <li><a href="#range" data-en="Products" data-sw="Bidhaa">Products</a></li><li><a href="#heritage" data-en="Heritage" data-sw="Urithi">Heritage</a></li>
+    <li><a href="#wholesale" data-en="Wholesale" data-sw="Jumla">Wholesale</a></li><li><a href="#contact" data-en="Contact" data-sw="Mawasiliano">Contact</a></li>
   </ul>
-  <a href="#wholesale" class="nav-cta">Order Now</a>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('sw')">SW</button>
+  </div>
+  <a href="#wholesale" class="nav-cta" data-en="Order Now" data-sw="Agiza Sasa">Order Now</a>
   <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </nav>
 
@@ -339,21 +414,21 @@ input[type=number] { -moz-appearance: textfield; }
   </svg>
   <div class="hero-content">
     <div>
-      <div class="hero-eyebrow">Nguvu Halisi — Authentic Strength</div>
+      <div class="hero-eyebrow" data-en="Nguvu Halisi — Authentic Strength" data-sw="Nguvu Halisi — Nguvu Ya Asili">Nguvu Halisi — Authentic Strength</div>
       <h1 class="hero-headline">
         <span class="line-white">Nguvu</span><span class="line-gold">Ya Simba</span>
         <span class="line-white">Fahari Ya</span><span class="line-gold">Tanzania</span>
-        <span class="tagline">The Strength of a Lion · The Pride of a Nation</span>
+        <span class="tagline" data-en="The Strength of a Lion · The Pride of a Nation" data-sw="Nguvu ya Simba · Fahari ya Taifa">The Strength of a Lion · The Pride of a Nation</span>
       </h1>
-      <p class="hero-desc">Crafted from wild ginger, golden honey, and the spirit of Tanzania. Vin Nkolo Mboka is a premium ginger-based alcoholic beverage that carries the boldness of the African lion in every bottle.</p>
+      <p class="hero-desc" data-en="Crafted from wild ginger, golden honey, and the spirit of Tanzania. Vin Nkolo Mboka is a premium ginger-based alcoholic beverage that carries the boldness of the African lion in every bottle." data-sw="Imetengenezwa kwa tangawizi ya asili, asali ya dhahabu, na roho ya Tanzania. Vin Nkolo Mboka ni kinywaji kikali cha kifahari cha tangawizi kinachobeba ujasiri wa simba wa Afrika katika kila chupa.">Crafted from wild ginger, golden honey, and the spirit of Tanzania. Vin Nkolo Mboka is a premium ginger-based alcoholic beverage that carries the boldness of the African lion in every bottle.</p>
       <div class="hero-ctas">
-        <a href="#product" class="btn btn-primary">Discover Nkolo Mboka</a>
-        <a href="#wholesale" class="btn btn-ghost">Wholesale Enquiry</a>
+        <a href="#product" class="btn btn-primary" data-en="Discover Nkolo Mboka" data-sw="Gundua Nkolo Mboka">Discover Nkolo Mboka</a>
+        <a href="#wholesale" class="btn btn-ghost" data-en="Wholesale Enquiry" data-sw="Uliza Bei ya Jumla">Wholesale Enquiry</a>
       </div>
       <div class="hero-stats">
-        <div><div class="stat-num">100%</div><div class="stat-label">Natural Ginger</div></div>
-        <div><div class="stat-num">TZ</div><div class="stat-label">Made in Tanzania</div></div>
-        <div><div class="stat-num">Halisi</div><div class="stat-label">Certified Authentic</div></div>
+        <div><div class="stat-num">100%</div><div class="stat-label" data-en="Natural Ginger" data-sw="Tangawizi Asilia">Natural Ginger</div></div>
+        <div><div class="stat-num">TZ</div><div class="stat-label" data-en="Made in Tanzania" data-sw="Imetengenezwa Tanzania">Made in Tanzania</div></div>
+        <div><div class="stat-num">Halisi</div><div class="stat-label" data-en="Certified Authentic" data-sw="Imethibitishwa Asilia">Certified Authentic</div></div>
       </div>
     </div>
     <div class="hero-right">
@@ -387,17 +462,17 @@ input[type=number] { -moz-appearance: textfield; }
   <div class="container">
     <div class="product-grid">
       <div class="reveal">
-        <div class="section-label">Our Flagship Product</div>
-        <h2 class="section-title">Vin <span class="accent">Nkolo Mboka</span></h2>
-        <p class="section-desc">Born from Tanzania's fertile highlands, Nkolo Mboka blends the fiery warmth of fresh ginger root with the sweetness of wild honey — a bold, warming spirit unlike anything else on the continent.</p>
-        <p class="section-desc" style="margin-bottom:0">"Nkolo Mboka" captures the Swahili spirit of rising, of emergence — a drink that lifts you like the lion that defines our land.</p>
-        <div style="margin-top:2rem"><a href="#wholesale" class="btn btn-primary">Enquire for Wholesale</a></div>
+        <div class="section-label" data-en="Our Flagship Product" data-sw="Bidhaa Yetu Kuu">Our Flagship Product</div>
+        <h2 class="section-title" data-en="Vin <span class='accent'>Nkolo Mboka</span>" data-sw="Vin <span class='accent'>Nkolo Mboka</span>">Vin <span class="accent">Nkolo Mboka</span></h2>
+        <p class="section-desc" data-en="Born from Tanzania's fertile highlands, Nkolo Mboka blends the fiery warmth of fresh ginger root with the sweetness of wild honey — a bold, warming spirit unlike anything else on the continent." data-sw="Ikitokea kwenye miinuko yenye rutuba ya Tanzania, Nkolo Mboka inachanganya joto kali la tangawizi mbichi na utamu wa asali ya nyuki wadogo — kinywaji kikali cha kusisimua kisichofanana na kingine chochote barani.">Born from Tanzania's fertile highlands, Nkolo Mboka blends the fiery warmth of fresh ginger root with the sweetness of wild honey — a bold, warming spirit unlike anything else on the continent.</p>
+        <p class="section-desc" style="margin-bottom:0" data-en="&quot;Nkolo Mboka&quot; captures the Swahili spirit of rising, of emergence — a drink that lifts you like the lion that defines our land." data-sw="&quot;Nkolo Mboka&quot; inabeba roho ya Kiswahili ya kuinuka, ya kujitokeza — kinywaji kinachokuinua kama simba anayeelezea ardhi yetu.">"Nkolo Mboka" captures the Swahili spirit of rising, of emergence — a drink that lifts you like the lion that defines our land.</p>
+        <div style="margin-top:2rem"><a href="#wholesale" class="btn btn-primary" data-en="Enquire for Wholesale" data-sw="Uliza Bei ya Jumla">Enquire for Wholesale</a></div>
       </div>
       <div class="ingredients-grid reveal">
-        <div class="ing-card"><div class="ing-icon">🫚</div><div class="ing-name">Wild Ginger</div><div class="ing-desc">Hand-harvested from Tanzania's highlands. The bold, spicy backbone of every bottle.</div></div>
-        <div class="ing-card"><div class="ing-icon">🍯</div><div class="ing-name">Honey</div><div class="ing-desc">Natural honey that rounds out the ginger fire with floral, golden sweetness.</div></div>
-        <div class="ing-card"><div class="ing-icon">🌿</div><div class="ing-name">Natural Botanicals</div><div class="ing-desc">A proprietary blend of African herbs and spices, perfected over time.</div></div>
-        <div class="ing-card"><div class="ing-icon">💧</div><div class="ing-name">Pure Water</div><div class="ing-desc">Clean mountain-source water — the silent foundation of our craft.</div></div>
+        <div class="ing-card"><div class="ing-icon">🫚</div><div class="ing-name" data-en="Wild Ginger" data-sw="Tangawizi Asili">Wild Ginger</div><div class="ing-desc" data-en="Hand-harvested from Tanzania's highlands. The bold, spicy backbone of every bottle." data-sw="Iliyovunwa kwa mkono kutoka miinuko ya Tanzania. Msingi mkali na wa viungo wa kila chupa.">Hand-harvested from Tanzania's highlands. The bold, spicy backbone of every bottle.</div></div>
+        <div class="ing-card"><div class="ing-icon">🍯</div><div class="ing-name" data-en="Honey" data-sw="Asali">Honey</div><div class="ing-desc" data-en="Natural honey that rounds out the ginger fire with floral, golden sweetness." data-sw="Asali asilia inayoleta usawa na joto la tangawizi kwa utamu wa maua na rangi ya dhahabu.">Natural honey that rounds out the ginger fire with floral, golden sweetness.</div></div>
+        <div class="ing-card"><div class="ing-icon">🌿</div><div class="ing-name" data-en="Natural Botanicals" data-sw="Mimea Asilia">Natural Botanicals</div><div class="ing-desc" data-en="A proprietary blend of African herbs and spices, perfected over time." data-sw="Mchanganyiko maalum wa mitishamba na viungo vya Afrika, uliokamilishwa baada ya muda mrefu.">A proprietary blend of African herbs and spices, perfected over time.</div></div>
+        <div class="ing-card"><div class="ing-icon">💧</div><div class="ing-name" data-en="Pure Water" data-sw="Maji Safi">Pure Water</div><div class="ing-desc" data-en="Clean mountain-source water — the silent foundation of our craft." data-sw="Maji safi kutoka milimani — msingi wa utulivu wa ufundi wetu.">Clean mountain-source water — the silent foundation of our craft.</div></div>
       </div>
     </div>
   </div>
@@ -407,9 +482,9 @@ input[type=number] { -moz-appearance: textfield; }
 <section class="range-section" id="range">
   <div class="container">
     <div class="range-header reveal">
-      <div class="section-label">Product Range</div>
-      <h2 class="range-title"><span class="w">Our </span><span class="g">Signature</span><span class="w"> Beverages</span></h2>
-      <p class="range-sub">From traditional wine to refreshing kombucha — crafted for every taste, every occasion, every Tanzanian.</p>
+      <div class="section-label" data-en="Product Range" data-sw="Aina za Bidhaa">Product Range</div>
+      <h2 class="range-title"><span class="w" data-en="Our" data-sw="Vinywaji Vyetu">Our </span><span class="g" data-en="Signature" data-sw="Vya">Signature</span><span class="w" data-en="Beverages" data-sw="Asili"> Beverages</span></h2>
+      <p class="range-sub" data-en="From traditional wine to refreshing kombucha — crafted for every taste, every occasion, every Tanzanian." data-sw="Kutoka divai ya asili hadi kombucha ya kuburudisha — imetengenezwa kwa kila ladha, kila tukio, kila Mtanzania.">From traditional wine to refreshing kombucha — crafted for every taste, every occasion, every Tanzanian.</p>
     </div>
     <div class="range-grid reveal">
       <div class="prod-card wine">
@@ -453,14 +528,14 @@ input[type=number] { -moz-appearance: textfield; }
   <div class="heritage-bg-text">TANZANIA</div>
   <div class="container">
     <div style="text-align:center">
-      <div class="section-label" style="justify-content:center">Our Heritage</div>
-      <h2 class="section-title">Born from <span class="accent">Tanzanian</span> Soil</h2>
-      <p class="section-desc" style="margin:0 auto">Simba Beverages Limited was built on one belief: Tanzania deserves a world-class spirit that tells its own story.</p>
+      <div class="section-label" style="justify-content:center" data-en="Our Heritage" data-sw="Urithi Wetu">Our Heritage</div>
+      <h2 class="section-title"><span data-en="Born from" data-sw="Tokea Kwenye">Born from</span> <span class="accent" data-en="Tanzanian" data-sw="Ardhi Ya">Tanzanian</span> <span data-en="Soil" data-sw="Tanzania">Soil</span></h2>
+      <p class="section-desc" style="margin:0 auto" data-en="Simba Beverages Limited was built on one belief: Tanzania deserves a world-class spirit that tells its own story." data-sw="Simba Beverages Limited ilijengwa kwa imani moja: Tanzania inastahili kinywaji cha kiwango cha kimataifa kinachosimulia hadithi yake yenyewe.">Simba Beverages Limited was built on one belief: Tanzania deserves a world-class spirit that tells its own story.</p>
     </div>
     <div class="heritage-cards reveal">
-      <div class="heritage-card"><div class="h-num">01</div><div class="h-name">The Lion Spirit</div><div class="h-text">The lion — Simba — is Tanzania's symbol of courage, strength, and pride. Every bottle carries that spirit into the hands of those who drink it.</div></div>
-      <div class="heritage-card"><div class="h-num">02</div><div class="h-name">Locally Sourced</div><div class="h-text">From ginger roots grown on Tanzanian slopes to honey from local beekeepers, every ingredient is sourced from within our borders.</div></div>
-      <div class="heritage-card"><div class="h-num">03</div><div class="h-name">Nguvu Halisi</div><div class="h-text">Our "Authentic Strength" seal is a promise — no shortcuts, no artificial anything. Just real craft, real Tanzania, in every drop.</div></div>
+      <div class="heritage-card"><div class="h-num">01</div><div class="h-name" data-en="The Lion Spirit" data-sw="Roho ya Simba">The Lion Spirit</div><div class="h-text" data-en="The lion — Simba — is Tanzania's symbol of courage, strength, and pride. Every bottle carries that spirit into the hands of those who drink it." data-sw="Simba ni ishara ya ujasiri, nguvu, na fahari ya Tanzania. Kila chupa inabeba roho hiyo mikononi mwa wanaoikunywa.">The lion — Simba — is Tanzania's symbol of courage, strength, and pride. Every bottle carries that spirit into the hands of those who drink it.</div></div>
+      <div class="heritage-card"><div class="h-num">02</div><div class="h-name" data-en="Locally Sourced" data-sw="Malighafi za Ndani">Locally Sourced</div><div class="h-text" data-en="From ginger roots grown on Tanzanian slopes to honey from local beekeepers, every ingredient is sourced from within our borders." data-sw="Kutoka kwenye mizizi ya tangawizi inayopandwa kwenye miinuko ya Tanzania hadi asali kutoka kwa wafugaji nyuki wa ndani, kila kiungo kinapatikana ndani ya mipaka yetu.">From ginger roots grown on Tanzanian slopes to honey from local beekeepers, every ingredient is sourced from within our borders.</div></div>
+      <div class="heritage-card"><div class="h-num">03</div><div class="h-name" data-en="Nguvu Halisi" data-sw="Nguvu Halisi">Nguvu Halisi</div><div class="h-text" data-en="Our 'Authentic Strength' seal is a promise — no shortcuts, no artificial anything. Just real craft, real Tanzania, in every drop." data-sw="Nembo yetu ya 'Nguvu Halisi' ni ahadi — hakuna njia za mkato, hakuna kitu bandia. Ni ufundi halisi, Tanzania halisi, katika kila tone.">Our "Authentic Strength" seal is a promise — no shortcuts, no artificial anything. Just real craft, real Tanzania, in every drop.</div></div>
     </div>
   </div>
 </section>
@@ -468,10 +543,37 @@ input[type=number] { -moz-appearance: textfield; }
 <!-- HALISI BANNER -->
 <section class="halisi-banner">
   <div class="container" style="max-width:720px;text-align:center">
-    <div class="section-label">The Nguvu Halisi Promise</div>
-    <h2 class="section-title">Premium Craft.<br>Genuine Tanzania.</h2>
-    <p class="section-desc">Simba Beverages Limited is proudly Tanzanian — founded, crafted, and bottled locally. We export Tanzanian pride to the world.</p>
-    <a href="#contact" class="btn btn-dark">Become a Distributor</a>
+    <div class="section-label" data-en="The Nguvu Halisi Promise" data-sw="Ahadi ya Nguvu Halisi">The Nguvu Halisi Promise</div>
+    <h2 class="section-title"><span data-en="Premium Craft." data-sw="Ufundi Bora.">Premium Craft.</span><br><span data-en="Genuine Tanzania." data-sw="Tanzania Asilia.">Genuine Tanzania.</span></h2>
+    <p class="section-desc" data-en="Simba Beverages Limited is proudly Tanzanian — founded, crafted, and bottled locally. We export Tanzanian pride to the world." data-sw="Simba Beverages Limited ni ya Kitanzania kwa kujivunia — iliyoanzishwa, kutengenezwa, na kufungwa kwenye chupa hapa nchini. Tunasafirisha fahari ya Tanzania duniani kote.">Simba Beverages Limited is proudly Tanzanian — founded, crafted, and bottled locally. We export Tanzanian pride to the world.</p>
+    <a href="#contact" class="btn btn-dark" data-en="Become a Distributor" data-sw="Kuwa Msambazaji">Become a Distributor</a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="container">
+    <div class="testimonials-header reveal">
+      <div class="section-label" data-en="Social Proof" data-sw="Ushuhuda">Social Proof</div>
+      <h2 class="section-title"><span class="w" data-en="Trusted By" data-sw="Waaminifu Na">Trusted By</span><br><span class="g" data-en="Tanzania's Best" data-sw="Bora Tanzania">Tanzania's Best</span></h2>
+    </div>
+    <div class="testimonials-grid reveal">
+      <div class="testimonial-card">
+        <div class="testimonial-quote" data-en="Vin Nkolo Mboka flies off our shelves. The margins are fantastic and our customers love the authentic ginger kick. Delivery is always on time." data-sw="Vin Nkolo Mboka inauzwa sana. Faida ni kubwa na wateja wetu wanapenda ladha asilia ya tangawizi. Uletaji mzigo hufika kwa wakati.">Vin Nkolo Mboka flies off our shelves. The margins are fantastic and our customers love the authentic ginger kick. Delivery is always on time.</div>
+        <div class="testimonial-author">Baraka</div>
+        <div class="testimonial-role" data-en="Wholesale Distributor, Dar es Salaam" data-sw="Msambazaji wa Jumla, Dar es Salaam">Wholesale Distributor, Dar es Salaam</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote" data-en="Since stocking Simba Beverages, our premium local spirits section has seen a 40% jump in sales. The quality is unmatched in the local market." data-sw="Tangu tuanze kuuza vinywaji vya Simba, mauzo ya vinywaji vyetu vya kienyeji yamepanda kwa asilimia 40. Ubora wao haufananishwi.">Since stocking Simba Beverages, our premium local spirits section has seen a 40% jump in sales. The quality is unmatched in the local market.</div>
+        <div class="testimonial-author">Amina</div>
+        <div class="testimonial-role" data-en="High-end Retailer, Arusha" data-sw="Muuzaji wa Rejareja, Arusha">High-end Retailer, Arusha</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote" data-en="We feature Nkolo Mboka at all our corporate events now. It adds that perfect touch of Tanzanian heritage that our clients are always looking for." data-sw="Tunatumia Nkolo Mboka kwenye sherehe zetu zote sasa. Inaongeza mguso mzuri wa asili ya kitanzania ambao wateja wetu wanautafuta.">We feature Nkolo Mboka at all our corporate events now. It adds that perfect touch of Tanzanian heritage that our clients are always looking for.</div>
+        <div class="testimonial-author">John</div>
+        <div class="testimonial-role" data-en="Event Coordinator, Dodoma" data-sw="Mratibu wa Sherehe, Dodoma">Event Coordinator, Dodoma</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -480,22 +582,22 @@ input[type=number] { -moz-appearance: textfield; }
   <div class="container">
     <div class="pricing-grid">
       <div class="reveal">
-        <div class="badge-pill">B2B Wholesale</div>
-        <h2 class="section-title" style="font-size:clamp(1.8rem,8vw,4rem)"><span>Interactive</span><br><span class="italic accent">Order</span><br><span>Calculator</span></h2>
-        <p class="section-desc">Simba Beverages Limited supports wholesalers, distributors, and bulk retail accounts across Tanzania. Estimate your order volume and free cases in real-time.</p>
+        <div class="badge-pill" data-en="B2B Wholesale" data-sw="Jumla kwa Wafanyabiashara">B2B Wholesale</div>
+        <h2 class="section-title" style="font-size:clamp(1.8rem,8vw,4rem)"><span data-en="Interactive" data-sw="Kikokotozi">Interactive</span><br><span class="italic accent" data-en="Order" data-sw="Cha">Order</span><br><span data-en="Calculator" data-sw="Oda">Calculator</span></h2>
+        <p class="section-desc" data-en="Simba Beverages Limited supports wholesalers, distributors, and bulk retail accounts across Tanzania. Estimate your order volume and free cases in real-time." data-sw="Simba Beverages Limited inasaidia wauzaji wa jumla, wasambazaji, na akaunti za rejareja kubwa kote Tanzania. Kadiria kiwango cha oda yako na kreti za bure papo hapo.">Simba Beverages Limited supports wholesalers, distributors, and bulk retail accounts across Tanzania. Estimate your order volume and free cases in real-time.</p>
         <div class="tier-badges" style="grid-template-columns:1fr">
-          <div class="tier-badge active" style="padding:1.5rem;text-align:center"><span class="tier-pct" style="font-size:2rem;color:var(--gold);">+7 FREE CASES</span><div class="tier-range" style="font-size:1.1rem;margin-top:.5rem">For every 100 cases ordered</div></div>
+          <div class="tier-badge active" style="padding:1.5rem;text-align:center"><span class="tier-pct" style="font-size:2rem;color:var(--gold);" data-en="+7 FREE CASES" data-sw="KRETI 7 BURE">+7 FREE CASES</span><div class="tier-range" style="font-size:1.1rem;margin-top:.5rem" data-en="For every 100 cases ordered" data-sw="Kwa kila kreti 100 zilizoagizwa">For every 100 cases ordered</div></div>
         </div>
         <div style="margin-top:1.75rem;padding:1.25rem 1.5rem;border:1px solid var(--border-gold);background:rgba(245,166,35,.04)">
-          <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.5rem">Note</div>
-          <p style="font-size:13px;color:var(--cream-muted);line-height:1.75">1 Case = 12 pieces. Minimum order: 10 cases.</p>
+          <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.5rem" data-en="Note" data-sw="Zingatia">Note</div>
+          <p style="font-size:13px;color:var(--cream-muted);line-height:1.75" data-en="1 Case = 12 pieces. Minimum order: 10 cases." data-sw="Kreti 1 = Chupa 12. Oda ya chini: kreti 10.">1 Case = 12 pieces. Minimum order: 10 cases.</p>
         </div>
       </div>
       <div class="reveal">
         <div class="calc-card">
           <div class="calc-top-row" style="display:flex;align-items:flex-start;justify-content:space-between;gap:1.5rem;margin-bottom:1.75rem">
             <div style="flex:1">
-              <label class="calc-label" for="productSelect">Select Product</label>
+              <label class="calc-label" for="productSelect" data-en="Select Product" data-sw="Chagua Bidhaa">Select Product</label>
               <select id="productSelect" class="calc-select">
                 <option value="nkolomoka_330" selected>Vin Nkolo Mboka 330ml</option>
               </select>
@@ -503,24 +605,24 @@ input[type=number] { -moz-appearance: textfield; }
           </div>
           <div style="margin-bottom:1.75rem">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
-              <label class="calc-label" style="margin:0" for="quantitySlider">Order Quantity</label>
+              <label class="calc-label" style="margin:0" for="quantitySlider" data-en="Order Quantity" data-sw="Kiasi cha Oda">Order Quantity</label>
               <div style="display:flex;align-items:center;gap:6px;">
                 <input type="number" id="quantityInput" value="10" min="10" max="10000" style="background:rgba(13,10,6,.7); border:1px solid var(--border-gold); color:var(--gold); font-family:'Oswald',sans-serif; font-size:1.1rem; padding:2px 8px; width:80px; text-align:center; border-radius:4px; outline:none;">
-                <span style="font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:700;color:var(--gold)">cases</span>
+                <span style="font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:700;color:var(--gold)" data-en="cases" data-sw="kreti">cases</span>
               </div>
             </div>
             <input type="range" id="quantitySlider" min="10" max="2000" value="10" step="10">
           </div>
           <div class="calc-results-box">
             <div class="result-grid" style="grid-template-columns:1fr; gap:0;">
-              <div style="text-align:center;"><span class="result-lbl">Free Cases Added To Order</span><span class="result-val gold" id="freeCasesVal" style="font-size:2.6rem;">0</span></div>
+              <div style="text-align:center;"><span class="result-lbl" data-en="Free Cases Added To Order" data-sw="Kreti za Bure Kwenye Oda Hii">Free Cases Added To Order</span><span class="result-val gold" id="freeCasesVal" style="font-size:2.6rem;">0</span></div>
             </div>
           </div>
           <!-- CREATE ENQUIRY — scrolls to form + pre-fills message -->
-          <button id="enquiryBtn" onclick="createEnquiry()" style="display:block;width:100%;text-align:center;font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:15px;background:var(--gold);color:var(--black);border:none;cursor:pointer;transition:background .2s" onmouseover="this.style.background='#FAC55A'" onmouseout="this.style.background='#F5A623'">
+          <button id="enquiryBtn" onclick="createEnquiry()" style="display:block;width:100%;text-align:center;font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:15px;background:var(--gold);color:var(--black);border:none;cursor:pointer;transition:background .2s" onmouseover="this.style.background='#FAC55A'" onmouseout="this.style.background='#F5A623'" data-en="CREATE ENQUIRY WITH QUOTE ✦" data-sw="TUMA MAOMBI YA ODA ✦">
             CREATE ENQUIRY WITH QUOTE ✦
           </button>
-          <p style="font-size:11px;color:var(--cream-dim);margin-top:.75rem;text-align:center;letter-spacing:.06em">Scrolls to the form below and pre-fills your quote details.</p>
+          <p style="font-size:11px;color:var(--cream-dim);margin-top:.75rem;text-align:center;letter-spacing:.06em" data-en="Scrolls to the form below and pre-fills your quote details." data-sw="Inakushusha kwenye fomu na kujaza taarifa zako za oda.">Scrolls to the form below and pre-fills your quote details.</p>
         </div>
       </div>
     </div>
@@ -532,30 +634,30 @@ input[type=number] { -moz-appearance: textfield; }
   <div class="container">
     <div class="contact-grid">
       <div class="reveal">
-        <div class="badge-pill">Partner With Us</div>
-        <h2 class="section-title" style="font-size:clamp(2rem,9vw,4.5rem);line-height:1.05">Let's <span class="italic accent">Work</span><br>Together</h2>
-        <p class="section-desc">Whether you're a local retailer, national wholesaler, corporate client, or looking to join our logistics pipeline — we'd love to hear from you.</p>
-        <div class="contact-block"><div class="contact-icon-box">📍</div><div><div class="contact-block-title">Corporate HQ</div><div class="contact-block-val">Plot 1204, Industrial Area, Dar es Salaam, Tanzania</div></div></div>
-        <div class="contact-block"><div class="contact-icon-box">✉️</div><div><div class="contact-block-title">Distribution Enquiries</div><div class="contact-block-val"><a href="mailto:sales@simba-beverages.co.tz">sales@simba-beverages.co.tz</a></div></div></div>
-        <div class="contact-block"><div class="contact-icon-box">📞</div><div><div class="contact-block-title">Customer Service</div><div class="contact-block-val"><a href="tel:+255713822240">+255 713822240</a></div></div></div>
-        <div class="contact-block" style="margin-bottom:0"><div class="contact-icon-box">💬</div><div><div class="contact-block-title">WhatsApp</div><div class="contact-block-val"><a href="https://wa.me/255713822240" target="_blank">Chat with us on WhatsApp</a></div></div></div>
+        <div class="badge-pill" data-en="Partner With Us" data-sw="Shirikiana Nasi">Partner With Us</div>
+        <h2 class="section-title" style="font-size:clamp(2rem,9vw,4.5rem);line-height:1.05"><span data-en="Let's" data-sw="Tufanye">Let's</span> <span class="italic accent" data-en="Work" data-sw="Kazi">Work</span><br><span data-en="Together" data-sw="Pamoja">Together</span></h2>
+        <p class="section-desc" data-en="Whether you're a local retailer, national wholesaler, corporate client, or looking to join our logistics pipeline — we'd love to hear from you." data-sw="Iwe wewe ni muuzaji wa rejareja, muuzaji wa jumla wa kitaifa, mteja wa kampuni, au unataka kujiunga na mtandao wetu wa usafirishaji — tungependa kusikia kutoka kwako.">Whether you're a local retailer, national wholesaler, corporate client, or looking to join our logistics pipeline — we'd love to hear from you.</p>
+        <div class="contact-block"><div class="contact-icon-box">📍</div><div><div class="contact-block-title" data-en="Corporate HQ" data-sw="Makao Makuu">Corporate HQ</div><div class="contact-block-val">Plot 1204, Industrial Area, Dar es Salaam, Tanzania</div></div></div>
+        <div class="contact-block"><div class="contact-icon-box">✉️</div><div><div class="contact-block-title" data-en="Distribution Enquiries" data-sw="Maulizo ya Usambazaji">Distribution Enquiries</div><div class="contact-block-val"><a href="mailto:sales@simba-beverages.co.tz">sales@simba-beverages.co.tz</a></div></div></div>
+        <div class="contact-block"><div class="contact-icon-box">📞</div><div><div class="contact-block-title" data-en="Customer Service" data-sw="Huduma kwa Wateja">Customer Service</div><div class="contact-block-val"><a href="tel:+255713822240">+255 713822240</a></div></div></div>
+        <div class="contact-block" style="margin-bottom:0"><div class="contact-icon-box">💬</div><div><div class="contact-block-title">WhatsApp</div><div class="contact-block-val"><a href="https://wa.me/255713822240" target="_blank" data-en="Chat with us on WhatsApp" data-sw="Ongea nasi kupitia WhatsApp">Chat with us on WhatsApp</a></div></div></div>
       </div>
       <div class="reveal">
         <!-- Quote pre-fill banner — hidden until calculator fires -->
         <div id="quoteBanner">
-          <strong>📋 Quote Pre-filled</strong>
+          <strong data-en="📋 Quote Pre-filled" data-sw="📋 Nukuu Imejazwa">📋 Quote Pre-filled</strong>
           <span id="quoteBannerText"></span>
-          <br><span style="font-size:12px;opacity:.7">Fill in your details below and click Send.</span>
+          <br><span style="font-size:12px;opacity:.7" data-en="Fill in your details below and click Send." data-sw="Jaza taarifa zako hapa chini na ubofye Tuma.">Fill in your details below and click Send.</span>
         </div>
 
         <form id="contactForm" novalidate>
           <div class="form-row-2" style="margin-bottom:1.25rem">
-            <div><label class="form-lbl">First Name *</label><input id="fFirstName" type="text" class="form-ctrl" placeholder="John" required></div>
-            <div><label class="form-lbl">Last Name *</label><input id="fLastName" type="text" class="form-ctrl" placeholder="Doe" required></div>
+            <div><label class="form-lbl" data-en="First Name *" data-sw="Jina la Kwanza *">First Name *</label><input id="fFirstName" type="text" class="form-ctrl" placeholder="John" data-en="John" data-sw="John" required></div>
+            <div><label class="form-lbl" data-en="Last Name *" data-sw="Jina la Mwisho *">Last Name *</label><input id="fLastName" type="text" class="form-ctrl" placeholder="Doe" data-en="Doe" data-sw="Doe" required></div>
           </div>
-          <div style="margin-bottom:1.25rem"><label class="form-lbl">Email Address *</label><input id="fEmail" type="email" class="form-ctrl" placeholder="you@company.co.tz" required></div>
-          <div style="margin-bottom:1.25rem"><label class="form-lbl">Phone / WhatsApp</label><input id="fPhone" type="tel" class="form-ctrl" placeholder="+255 7XX XXX XXXX"></div>
-          <div style="margin-bottom:1.25rem"><label class="form-lbl">Company / Business Name *</label><input id="fCompany" type="text" class="form-ctrl" placeholder="Your business name" required></div>
+          <div style="margin-bottom:1.25rem"><label class="form-lbl" data-en="Email Address *" data-sw="Barua Pepe *">Email Address *</label><input id="fEmail" type="email" class="form-ctrl" placeholder="you@company.co.tz" data-en="you@company.co.tz" data-sw="wewe@kampuni.co.tz" required></div>
+          <div style="margin-bottom:1.25rem"><label class="form-lbl" data-en="Phone / WhatsApp" data-sw="Namba ya Simu / WhatsApp">Phone / WhatsApp</label><input id="fPhone" type="tel" class="form-ctrl" placeholder="+255 7XX XXX XXXX" data-en="+255 7XX XXX XXXX" data-sw="+255 7XX XXX XXXX"></div>
+          <div style="margin-bottom:1.25rem"><label class="form-lbl" data-en="Company / Business Name *" data-sw="Jina la Kampuni / Biashara *">Company / Business Name *</label><input id="fCompany" type="text" class="form-ctrl" placeholder="Your business name" data-en="Your business name" data-sw="Jina la biashara yako" required></div>
           <div style="margin-bottom:1.25rem">
             <label class="form-lbl">Partnership Type *</label>
             <select id="fType" class="form-ctrl select-ctrl" required>
@@ -574,17 +676,77 @@ input[type=number] { -moz-appearance: textfield; }
           <div class="send-btns">
             <button type="button" id="btnWA" class="send-btn wa" onclick="sendViaWhatsApp()">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-              Send via WhatsApp
+              <span data-en="Send via WhatsApp" data-sw="Tuma kwa WhatsApp">Send via WhatsApp</span>
             </button>
             <button type="submit" id="btnEmail" class="send-btn em">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-              Send via Email
+              <span data-en="Send via Email" data-sw="Tuma kwa Barua Pepe">Send via Email</span>
             </button>
           </div>
-          <p class="form-note">WhatsApp opens instantly · Email sends to sales@simba-beverages.co.tz</p>
-          <div class="form-success" id="formSuccess">✦ Sent! We'll be in touch within 24 hours.</div>
-          <div class="form-error" id="formError">⚠ Please fill in all required fields before sending.</div>
+          <p class="form-note" data-en="WhatsApp opens instantly · Email sends to sales@simba-beverages.co.tz" data-sw="WhatsApp inafunguka mara moja · Barua pepe inatumwa kwa sales@simba-beverages.co.tz">WhatsApp opens instantly · Email sends to sales@simba-beverages.co.tz</p>
+          <div class="form-success" id="formSuccess" data-en="✦ Sent! We'll be in touch within 24 hours." data-sw="✦ Imetumwa! Tutawasiliana na wewe ndani ya masaa 24.">✦ Sent! We'll be in touch within 24 hours.</div>
+          <div class="form-error" id="formError" data-en="⚠ Please fill in all required fields before sending." data-sw="⚠ Tafadhali jaza sehemu zote zinazohitajika kabla ya kutuma.">⚠ Please fill in all required fields before sending.</div>
         </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="testimonials-header reveal">
+      <div class="section-label" data-en="Questions?" data-sw="Maswali?">Questions?</div>
+      <h2 class="section-title"><span class="w" data-en="Wholesale" data-sw="Maswali ya">Wholesale</span><br><span class="g" data-en="FAQ" data-sw="Jumla">FAQ</span></h2>
+    </div>
+    <div class="faq-grid reveal">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span data-en="What is the minimum order quantity?" data-sw="Kiwango cha chini cha kuagiza ni kipi?">What is the minimum order quantity?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer" data-en="Our minimum wholesale order is 10 cases (120 bottles). For orders above 100 cases, you unlock free bonus cases." data-sw="Kiwango chetu cha chini cha jumla ni kreti 10 (chupa 120). Kwa oda za zaidi ya kreti 100, utapata kreti za bure.">
+          Our minimum wholesale order is 10 cases (120 bottles). For orders above 100 cases, you unlock free bonus cases.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span data-en="Where do you deliver?" data-sw="Mnafanya usafirishaji wapi?">Where do you deliver?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <!-- CONFIRM THIS POLICY -->
+        <div class="faq-answer" data-en="We deliver across all major regions in Tanzania, including Dar es Salaam, Arusha, Dodoma, and Mwanza. Logistics fees may apply for remote areas." data-sw="Tunasafirisha mikoani yote mikubwa Tanzania, ikiwemo Dar es Salaam, Arusha, Dodoma, na Mwanza. Ada za usafiri zinaweza kutozwa kwa maeneo ya mbali.">
+          We deliver across all major regions in Tanzania, including Dar es Salaam, Arusha, Dodoma, and Mwanza. Logistics fees may apply for remote areas.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span data-en="What are the payment terms?" data-sw="Masharti ya malipo yakoje?">What are the payment terms?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <!-- CONFIRM THIS POLICY -->
+        <div class="faq-answer" data-en="Payment must be settled in full before dispatch for new partners. We accept Bank Transfers, Mobile Money (M-Pesa, Tigo Pesa), and corporate checks." data-sw="Malipo yote lazima yakamilishwe kabla ya mzigo kutoka kwa washirika wapya. Tunapokea miamala ya Benki, M-Pesa, Tigo Pesa, na hundi za makampuni.">
+          Payment must be settled in full before dispatch for new partners. We accept Bank Transfers, Mobile Money (M-Pesa, Tigo Pesa), and corporate checks.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span data-en="What is the lead time for an order?" data-sw="Muda wa kuandaa oda ni upi?">What is the lead time for an order?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <!-- CONFIRM THIS POLICY -->
+        <div class="faq-answer" data-en="Standard wholesale orders are processed and dispatched within 3-5 business days. Large scale container orders require 2 weeks notice." data-sw="Oda za kawaida huchakatwa na kusafirishwa ndani ya siku 3-5 za kazi. Oda kubwa za makontena zinahitaji taarifa ya wiki 2.">
+          Standard wholesale orders are processed and dispatched within 3-5 business days. Large scale container orders require 2 weeks notice.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span data-en="Can I pre-order the upcoming products?" data-sw="Naweza kuagiza bidhaa mpya kabla hazijatoka?">Can I pre-order the upcoming products?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer" data-en="Yes! Ola Kombucha, Ginger Punch, and Hard Rock are currently in final production. Fill out the contact form to join the VIP waitlist and be the first to stock them." data-sw="Ndiyo! Ola Kombucha, Ginger Punch, na Hard Rock ziko katika hatua za mwisho za uzalishaji. Jaza fomu ya mawasiliano kujiunga na orodha ya VIP na uwe wa kwanza kuziuza.">
+          Yes! Ola Kombucha, Ginger Punch, and Hard Rock are currently in final production. Fill out the contact form to join the VIP waitlist and be the first to stock them.
+        </div>
       </div>
     </div>
   </div>
@@ -613,36 +775,36 @@ input[type=number] { -moz-appearance: textfield; }
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-brand-name">SIMBA BEVERAGES</div>
-        <p>A proudly Tanzanian beverage company crafting premium spirits from the heart of East Africa.</p>
+        <p data-en="A proudly Tanzanian beverage company crafting premium spirits from the heart of East Africa." data-sw="Kampuni ya vinywaji ya Kitanzania inayojivunia kutengeneza vinywaji vya kifahari kutoka moyoni mwa Afrika Mashariki.">A proudly Tanzanian beverage company crafting premium spirits from the heart of East Africa.</p>
         <p style="margin-top:1rem;color:rgba(253,246,233,.22);font-size:12px">Plot 1204, Industrial Area, Dar es Salaam, Tanzania</p>
       </div>
       <div>
-        <div class="footer-col-title">Products</div>
+        <div class="footer-col-title" data-en="Products" data-sw="Bidhaa">Products</div>
         <ul class="footer-links">
           <li><a href="#product">Vin Nkolo Mboka</a></li>
           <li><a href="#range">Ola Kombucha</a></li><li><a href="#range">Ginger Punch</a></li><li><a href="#range">Hard Rock</a></li>
         </ul>
       </div>
       <div>
-        <div class="footer-col-title">Company</div>
+        <div class="footer-col-title" data-en="Company" data-sw="Kampuni">Company</div>
         <ul class="footer-links">
-          <li><a href="#heritage">Our Heritage</a></li><li><a href="#wholesale">Wholesale</a></li>
-          <li><a href="#contact">Partner With Us</a></li><li><a href="#contact">Contact</a></li>
+          <li><a href="#heritage" data-en="Our Heritage" data-sw="Urithi Wetu">Our Heritage</a></li><li><a href="#wholesale" data-en="Wholesale" data-sw="Jumla">Wholesale</a></li>
+          <li><a href="#contact" data-en="Partner With Us" data-sw="Shirikiana Nasi">Partner With Us</a></li><li><a href="#contact" data-en="Contact" data-sw="Mawasiliano">Contact</a></li>
         </ul>
       </div>
       <div>
-        <div class="footer-col-title">Connect</div>
+        <div class="footer-col-title" data-en="Connect" data-sw="Ungana Nasi">Connect</div>
         <ul class="footer-links">
           <li><a href="https://www.instagram.com/nkolombokavin" target="_blank">Instagram</a></li>
           <li><a href="https://wa.me/255713822240">WhatsApp</a></li>
-          <li><a href="mailto:sales@simba-beverages.co.tz">Email Us</a></li>
+          <li><a href="mailto:sales@simba-beverages.co.tz" data-en="Email Us" data-sw="Tutumie Barua Pepe">Email Us</a></li>
           <li><a href="tel:+255713822240">+255 713822240</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-copy">© 2026 Simba Beverages Limited Tanzania. All rights reserved.</div>
-      <div class="footer-copy">Nguvu Ya Simba · Fahari Ya Tanzania</div>
+      <div class="footer-copy" data-en="© 2026 Simba Beverages Limited Tanzania. All rights reserved." data-sw="© 2026 Simba Beverages Limited Tanzania. Haki zote zimehifadhiwa.">© 2026 Simba Beverages Limited Tanzania. All rights reserved.</div>
+      <div class="footer-copy" data-en="Nguvu Ya Simba · Fahari Ya Tanzania" data-sw="Nguvu Ya Simba · Fahari Ya Tanzania">Nguvu Ya Simba · Fahari Ya Tanzania</div>
     </div>
   </div>
 </footer>
@@ -917,7 +1079,25 @@ function verifyAge(isAdult){
     window.location.href = 'https://www.google.com';
   }
 }
-initAgeGate();
+// ── FAQ TOGGLE ──
+function toggleFaq(el){
+  const item = el.parentElement;
+  item.classList.toggle('active');
+}
+
+// ── LANGUAGE TOGGLE ──
+function setLang(lang){
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+  
+  document.querySelectorAll('[data-en][data-sw]').forEach(el => {
+    if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+      el.placeholder = el.getAttribute(`data-${lang}`);
+    } else {
+      el.innerHTML = el.getAttribute(`data-${lang}`);
+    }
+  });
+}
 </script>
 </body>
 </html>
